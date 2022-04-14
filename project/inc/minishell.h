@@ -6,7 +6,7 @@
 /*   By: a79856 <a79856@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 19:45:11 by hashly            #+#    #+#             */
-/*   Updated: 2022/04/04 19:57:54 by a79856           ###   ########.fr       */
+/*   Updated: 2022/04/14 21:24:22 by a79856           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@
 # define PIPE_ON_THE_RIGHT 5
 # define PIPE_BOTH_SIDES 6
 # define SEMICOLON_CODE 7
+# define MAX_FD 1024
 
 # define BR_LEFT			"\001\002(\003\023"
 # define BR_RIGHT			"\001\002)\003\023"
@@ -75,12 +76,12 @@
 # define START_DOUBLE_QUOTE	"\001\002!\003\002"
 # define END_DOUBLE_QUOTE	"\001\002!!\003\02"
 
-# define TESTER
+# define TESTER //debug
 # define STD_IN				0
 # define STD_OUT			1
 # define STD_ERR			2
 
-# ifdef __APPLE__
+# ifdef __APPLE__ //debug
 	void	rl_replace_line();
 # endif
 
@@ -90,7 +91,6 @@ typedef struct s_data
 	char	*cmd;
 	char	*cmd_exec;
 	char	**argv;
-	// char	**redir;
 	char	sep; //NONE, AND, OR, SEMICOLON
 	char	pipe; //NONE, PIPE, PIPE_ON_THE_LEFT, PIPE_ON_THE_RIGHT, PIPE_BOTH_SIDES
 }	t_data;
@@ -114,7 +114,6 @@ typedef struct s_node
 	char			stop;
 	int				def_fd[3];
 	int				pipe[2];
-	// int				redir_fd[3];
 	t_list			*list_redir;
 	char			***env;
 }	t_node;
@@ -130,7 +129,7 @@ typedef struct s_content
 //minishell.c
 
 //envp.c
-char	***ft_copy_env(char **env, char ***argv);
+char	***ft_copy_env(char **env);
 int		ft_free_envp(char ****env);
 int		ft_set_ret(int value, char *msg, char **env);
 char	*ft_getenv(char *name, char **env);
@@ -139,7 +138,7 @@ char	*ft_get_status(char **env);
 void	sig_d(int signo);
 void	set_signal(void);
 //parsing.c
-char	**parsing(char ***env);
+char	**parsing(char ***env, char *cmd ,char mode_work);
 //output.c
 char	*get_promt(char **env);
 char	*ft_getenv(char *name, char **env);

@@ -6,7 +6,7 @@
 /*   By: a79856 <a79856@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 17:46:12 by a79856            #+#    #+#             */
-/*   Updated: 2022/04/04 14:47:56 by a79856           ###   ########.fr       */
+/*   Updated: 2022/04/08 22:06:17 by a79856           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ typedef struct s_parser
 	int		quo;
 	char	red;
 	int		d_quo;
+	int		r;
+	int		spase;
 }	t_parser;
 
 typedef struct s_dollar

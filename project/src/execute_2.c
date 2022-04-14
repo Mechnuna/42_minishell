@@ -6,7 +6,7 @@
 /*   By: hashly <hashly@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 15:07:49 by hashly            #+#    #+#             */
-/*   Updated: 2022/03/28 11:31:51 by hashly           ###   ########.fr       */
+/*   Updated: 2022/04/12 10:17:37 by hashly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,22 @@ static char	find_cmd_in_dir(t_node *node, char *path)
 	DIR				*dir;
 	struct dirent	*dirent;
 	char			flag;
+	size_t			len;
+	char			*str;
 
 	flag = 0;
 	dir = opendir(path);
 	if (!dir)
-	{
-		ft_putstr_fd(PROGRAM_NAME": ", STD_ERR);
-		perror(node->data->cmd);
-		exit(ft_set_ret(126, NULL, *node->env));
-	}
+		return (flag);
 	dirent = readdir(dir);
+	str = node->data->cmd_exec;
+	len = ft_strlen(str);
 	while (dirent)
 	{
-		if (!flag && ft_strncmp(node->data->cmd_exec, dirent->d_name, \
-		ft_strlen(node->data->cmd_exec) + 1) == 0)
+		if (!flag && ft_strncmp(str, dirent->d_name, len + 1) == 0)
+			flag = 1;
+		else if (!flag && ft_strncmp(dirent->d_name, str, len - 1) == 0 \
+		&& str[len - 1] == '/' && str[len] == 0)
 			flag = 1;
 		dirent = readdir(dir);
 	}
@@ -50,11 +52,11 @@ static char	**ret_path_replace_cmd(t_node *node)
 	ret = NULL;
 	while (node->data->cmd_exec[i])
 	{
-		if (node->data->cmd_exec[i++] == '/')
+		if (node->data->cmd_exec[i++] == '/' && node->data->cmd_exec[i])
 			end = i - 1;
 	}
 	if (end == -1)
-		return (ft_add_line(ret, "."));
+		return (ft_add_line(ret, "./"));
 	temp = ft_substr(node->data->cmd_exec, 0, end + 1);
 	ret = ft_add_line(ret, temp);
 	free(temp);
@@ -74,7 +76,7 @@ static void	find_cmd(t_node *node)
 
 	path = NULL;
 	mode = cmd_in_path(node);
-	if (mode)
+	if (mode == 1)
 		path = ft_split(ft_getenv("PATH", *node->env), ':');
 	else
 		path = ret_path_replace_cmd(node);
@@ -83,7 +85,7 @@ static void	find_cmd(t_node *node)
 	while (path && path[i] && file_find == 0)
 	{
 		file_find = find_cmd_in_dir(node, path[i]);
-		if (file_find || mode == 0)
+		if (file_find)
 			break ;
 		i++;
 	}
@@ -105,6 +107,8 @@ static char	cmd_is_folder(t_node *node)
 		closedir(dir);
 		return (1);
 	}
+	if (errno == EACCES)
+		return (1);
 	return (0);
 }
 
@@ -118,14 +122,16 @@ void	open_path_and_check_access(t_node *node)
 	find_cmd(node);
 	if (cmd_is_folder(node))
 		output_error(3, node);
-	if (access(node->data->cmd_exec, F_OK))
+	else if (access(node->data->cmd_exec, F_OK ))
 	{
+		ft_putstr_fd(PROGRAM_NAME": ", STD_ERR);
 		perror(node->data->cmd);
 		exit(127);
 	}
-	else if (access(node->data->cmd_exec, X_OK))
+	else if (access(node->data->cmd_exec, R_OK | X_OK))
 	{
-		perror(node->data->cmd);
+		ft_putstr_fd(PROGRAM_NAME": ", STD_ERR);
+		perror(node->data->cmd_exec);
 		exit(126);
 	}
 }
