@@ -1,0 +1,2761 @@
+|> WITH echo $PWD; echo $OLDPWD; cd .; pwd; echo $PWD; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+/Users/a79856/.cache/minishell_test/sandbox$
+/Users/a79856/.cache/minishell_test/sandbox$
+/Users/a79856/.cache/minishell_test/sandbox$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd .$
+/Users/a79856/.cache/minishell_test/sandbox$
+/Users/a79856/.cache/minishell_test/sandbox echo $
+================================================================================
+
+|> WITH echo $PWD; echo $OLDPWD; cd ..; pwd; echo $PWD; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+/Users/a79856/.cache/minishell_test$
+/Users/a79856/.cache/minishell_test$
+/Users/a79856/.cache/minishell_test/sandbox$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd ..$
+/Users/a79856/.cache/minishell_test/sandbox$
+/Users/a79856/.cache/minishell_test/sandbox echo $
+================================================================================
+
+|> WITH echo $PWD; echo $OLDPWD; cd ../..; pwd; echo $PWD; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+/Users/a79856/.cache$
+/Users/a79856/.cache$
+/Users/a79856/.cache/minishell_test/sandbox$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd ../..$
+/Users/a79856/.cache/minishell_test/sandbox$
+/Users/a79856/.cache/minishell_test/sandbox echo $
+================================================================================
+
+|> WITH echo $PWD; echo $OLDPWD; cd ../../..; pwd; echo $PWD; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+/Users/a79856$
+/Users/a79856$
+/Users/a79856/.cache/minishell_test/sandbox$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd ../../..$
+/Users/a79856/.cache/minishell_test/sandbox$
+/Users/a79856/.cache/minishell_test/sandbox echo $
+================================================================================
+
+|> WITH echo $PWD; echo $OLDPWD; cd ../../../..; pwd; echo $PWD; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+/Users$
+/Users$
+/Users/a79856/.cache/minishell_test/sandbox$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd ../../../..$
+/Users/a79856/.cache/minishell_test/sandbox$
+/Users/a79856/.cache/minishell_test/sandbox echo $
+================================================================================
+
+|> WITH echo $PWD; echo $OLDPWD; cd ../../../../..; pwd; echo $PWD; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+/$
+/$
+/Users/a79856/.cache/minishell_test/sandbox$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd ../../../../..$
+/Users/a79856/.cache/minishell_test/sandbox$
+/Users/a79856/.cache/minishell_test/sandbox echo $
+================================================================================
+
+|> WITH echo $PWD; echo $OLDPWD; cd ../../../../../..; pwd; echo $PWD; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+/$
+/$
+/Users/a79856/.cache/minishell_test/sandbox$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd ../../../../../..$
+/Users/a79856/.cache/minishell_test/sandbox$
+/Users/a79856/.cache/minishell_test/sandbox echo $
+================================================================================
+
+|> WITH echo $PWD; echo $OLDPWD; cd /; pwd; echo $PWD; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+/$
+/$
+/Users/a79856/.cache/minishell_test/sandbox$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd /$
+/Users/a79856/.cache/minishell_test/sandbox$
+/Users/a79856/.cache/minishell_test/sandbox echo $
+================================================================================
+
+|> WITH echo $PWD; echo $OLDPWD; cd ''; pwd; echo $PWD; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+/Users/a79856/.cache/minishell_test/sandbox$
+/Users/a79856/.cache/minishell_test/sandbox$
+/Users/a79856/.cache/minishell_test/sandbox$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd $
+/Users/a79856/.cache/minishell_test/sandbox$
+/Users/a79856/.cache/minishell_test/sandbox echo $
+================================================================================
+
+|> WITH echo $PWD; echo $OLDPWD; cd '' ''; pwd; echo $PWD; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+/Users/a79856/.cache/minishell_test/sandbox$
+/Users/a79856/.cache/minishell_test/sandbox$
+/Users/a79856/.cache/minishell_test/sandbox$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd  $
+/Users/a79856/.cache/minishell_test/sandbox$
+/Users/a79856/.cache/minishell_test/sandbox echo $
+================================================================================
+
+|> WITH echo $PWD; echo $OLDPWD; cd '' '' ''; pwd; echo $PWD; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+/Users/a79856/.cache/minishell_test/sandbox$
+/Users/a79856/.cache/minishell_test/sandbox$
+/Users/a79856/.cache/minishell_test/sandbox$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd   $
+/Users/a79856/.cache/minishell_test/sandbox$
+/Users/a79856/.cache/minishell_test/sandbox echo $
+================================================================================
+
+|> WITH echo $PWD; echo $OLDPWD; cd ' '; pwd; echo $PWD; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+minishell: cd:  : No such file or directory$
+/Users/a79856/.cache/minishell_test/sandbox$
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd  $
+/Users/a79856/.cache/minishell_test/sandbox$
+/Users/a79856/.cache/minishell_test/sandbox echo $
+================================================================================
+
+|> WITH [SETUP mkdir d] echo $PWD; echo $OLDPWD; cd d ''; pwd; echo $PWD; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+/Users/a79856/.cache/minishell_test/sandbox/d$
+/Users/a79856/.cache/minishell_test/sandbox/d$
+/Users/a79856/.cache/minishell_test/sandbox$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd d $
+/Users/a79856/.cache/minishell_test/sandbox$
+/Users/a79856/.cache/minishell_test/sandbox echo $
+================================================================================
+
+|> WITH [SETUP mkdir d] echo $PWD; echo $OLDPWD; cd d d; pwd; echo $PWD; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+/Users/a79856/.cache/minishell_test/sandbox/d$
+/Users/a79856/.cache/minishell_test/sandbox/d$
+/Users/a79856/.cache/minishell_test/sandbox$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd d d$
+/Users/a79856/.cache/minishell_test/sandbox$
+/Users/a79856/.cache/minishell_test/sandbox echo $
+================================================================================
+
+|> WITH [SETUP mkdir d] echo $PWD; echo $OLDPWD; cd d ' '; pwd; echo $PWD; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+/Users/a79856/.cache/minishell_test/sandbox/d$
+/Users/a79856/.cache/minishell_test/sandbox/d$
+/Users/a79856/.cache/minishell_test/sandbox$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd d  $
+/Users/a79856/.cache/minishell_test/sandbox$
+/Users/a79856/.cache/minishell_test/sandbox echo $
+================================================================================
+
+|> WITH [EXPORTS HOME='/Users/a79856'] echo $PWD; echo $OLDPWD; cd $HOME; pwd; echo $PWD; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+/Users/a79856$
+/Users/a79856$
+/Users/a79856/.cache/minishell_test/sandbox$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd /Users/a79856 pwd$
+/Users/a79856/.cache/minishell_test/sandbox echo $
+================================================================================
+
+|> WITH echo $PWD; echo $OLDPWD; cd /; pwd; echo $PWD; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+/$
+/$
+/Users/a79856/.cache/minishell_test/sandbox$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd /$
+/Users/a79856/.cache/minishell_test/sandbox$
+/Users/a79856/.cache/minishell_test/sandbox echo $
+================================================================================
+
+|> WITH echo $PWD; echo $OLDPWD; cd /.; pwd; echo $PWD; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+/$
+/$
+/Users/a79856/.cache/minishell_test/sandbox$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd /.$
+/Users/a79856/.cache/minishell_test/sandbox$
+/Users/a79856/.cache/minishell_test/sandbox echo $
+================================================================================
+
+|> WITH echo $PWD; echo $OLDPWD; cd /./; pwd; echo $PWD; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+/$
+/$
+/Users/a79856/.cache/minishell_test/sandbox$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd /./$
+/Users/a79856/.cache/minishell_test/sandbox$
+/Users/a79856/.cache/minishell_test/sandbox echo $
+================================================================================
+
+|> WITH echo $PWD; echo $OLDPWD; cd /././././; pwd; echo $PWD; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+/$
+/$
+/Users/a79856/.cache/minishell_test/sandbox$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd /././././$
+/Users/a79856/.cache/minishell_test/sandbox$
+/Users/a79856/.cache/minishell_test/sandbox echo $
+================================================================================
+
+|> WITH echo $PWD; echo $OLDPWD; cd //; pwd; echo $PWD; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+/$
+/$
+/Users/a79856/.cache/minishell_test/sandbox$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd /$
+/Users/a79856/.cache/minishell_test/sandbox$
+/Users/a79856/.cache/minishell_test/sandbox echo $
+================================================================================
+
+|> WITH echo $PWD; echo $OLDPWD; cd ///; pwd; echo $PWD; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+/$
+/$
+/Users/a79856/.cache/minishell_test/sandbox$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd ///$
+/Users/a79856/.cache/minishell_test/sandbox$
+/Users/a79856/.cache/minishell_test/sandbox echo $
+================================================================================
+
+|> WITH echo $PWD; echo $OLDPWD; cd ////; pwd; echo $PWD; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+/$
+/$
+/Users/a79856/.cache/minishell_test/sandbox$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd ////$
+/Users/a79856/.cache/minishell_test/sandbox$
+/Users/a79856/.cache/minishell_test/sandbox echo $
+================================================================================
+
+|> WITH echo $PWD; echo $OLDPWD; cd //////////////////////////////////////////////////////; pwd; echo $PWD; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+/$
+/$
+/Users/a79856/.cache/minishell_test/sandbox$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd //////////////////////////////////////////////////////$
+/Users/a79856/.cache/minishell_test/sandbox$
+/Users/a79856/.cache/minishell_test/sandbox echo $
+================================================================================
+
+|> WITH echo $PWD; echo $OLDPWD; cd; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+minishell: cd: HOME not set$
+$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd$
+$
+================================================================================
+
+|> WITH [EXPORTS HOME='/Users/a79856'] echo $PWD; echo $OLDPWD; cd; echo $PWD; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+/Users/a79856$
+/Users/a79856/.cache/minishell_test/sandbox$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd$
+/Users/a79856/.cache/minishell_test/sandbox echo $
+================================================================================
+
+|> WITH echo $PWD; echo $OLDPWD; cd ' /'; pwd; echo $PWD; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+minishell: cd:  /: No such file or directory$
+/Users/a79856/.cache/minishell_test/sandbox$
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd  /$
+/Users/a79856/.cache/minishell_test/sandbox$
+/Users/a79856/.cache/minishell_test/sandbox echo $
+================================================================================
+
+|> WITH echo $PWD; echo $OLDPWD; cd ' / '; pwd; echo $PWD; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+minishell: cd:  / : No such file or directory$
+/Users/a79856/.cache/minishell_test/sandbox$
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd  / $
+/Users/a79856/.cache/minishell_test/sandbox$
+/Users/a79856/.cache/minishell_test/sandbox echo $
+================================================================================
+
+|> WITH echo $PWD; echo $OLDPWD; cd '                  /'; pwd; echo $PWD; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+minishell: cd:                   /: No such file or directory$
+/Users/a79856/.cache/minishell_test/sandbox$
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd                   /$
+/Users/a79856/.cache/minishell_test/sandbox$
+/Users/a79856/.cache/minishell_test/sandbox echo $
+================================================================================
+
+|> WITH echo $PWD; echo $OLDPWD; cd '                  /              '; pwd; echo $PWD; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+minishell: cd:                   /              : No such file or directory$
+/Users/a79856/.cache/minishell_test/sandbox$
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd                   /              $
+/Users/a79856/.cache/minishell_test/sandbox$
+/Users/a79856/.cache/minishell_test/sandbox echo $
+================================================================================
+
+|> WITH echo $PWD; echo $OLDPWD; cd ' // '; pwd; echo $PWD; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+minishell: cd:  // : No such file or directory$
+/Users/a79856/.cache/minishell_test/sandbox$
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd  // $
+/Users/a79856/.cache/minishell_test/sandbox$
+/Users/a79856/.cache/minishell_test/sandbox echo $
+================================================================================
+
+|> WITH echo $PWD; echo $OLDPWD; cd //home; pwd; echo $PWD; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+/home$
+/home$
+/Users/a79856/.cache/minishell_test/sandbox$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd /home$
+/Users/a79856/.cache/minishell_test/sandbox$
+/Users/a79856/.cache/minishell_test/sandbox echo $
+================================================================================
+
+|> WITH echo $PWD; echo $OLDPWD; cd ' //home'; pwd; echo $PWD; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+minishell: cd:  //home: No such file or directory$
+/Users/a79856/.cache/minishell_test/sandbox$
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd  //home$
+/Users/a79856/.cache/minishell_test/sandbox$
+/Users/a79856/.cache/minishell_test/sandbox echo $
+================================================================================
+
+|> WITH echo $PWD; echo $OLDPWD; cd '     //home    '; pwd; echo $PWD; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+minishell: cd:      //home    : No such file or directory$
+/Users/a79856/.cache/minishell_test/sandbox$
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd      //home    $
+/Users/a79856/.cache/minishell_test/sandbox$
+/Users/a79856/.cache/minishell_test/sandbox echo $
+================================================================================
+
+|> WITH [SETUP mkdir -m 000 d] echo $PWD; echo $OLDPWD; cd d; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+minishell: cd: d: Permission denied$
+$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd d$
+$
+================================================================================
+
+|> WITH [SETUP mkdir -m 001 d] echo $PWD; echo $OLDPWD; cd d; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+minishell: cd: d: Permission denied$
+$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd d$
+$
+================================================================================
+
+|> WITH [SETUP mkdir -m 002 d] echo $PWD; echo $OLDPWD; cd d; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+minishell: cd: d: Permission denied$
+$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd d$
+$
+================================================================================
+
+|> WITH [SETUP mkdir -m 003 d] echo $PWD; echo $OLDPWD; cd d; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+minishell: cd: d: Permission denied$
+$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd d$
+$
+================================================================================
+
+|> WITH [SETUP mkdir -m 004 d] echo $PWD; echo $OLDPWD; cd d; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+minishell: cd: d: Permission denied$
+$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd d$
+$
+================================================================================
+
+|> WITH [SETUP mkdir -m 005 d] echo $PWD; echo $OLDPWD; cd d; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+minishell: cd: d: Permission denied$
+$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd d$
+$
+================================================================================
+
+|> WITH [SETUP mkdir -m 006 d] echo $PWD; echo $OLDPWD; cd d; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+minishell: cd: d: Permission denied$
+$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd d$
+$
+================================================================================
+
+|> WITH [SETUP mkdir -m 007 d] echo $PWD; echo $OLDPWD; cd d; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+minishell: cd: d: Permission denied$
+$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd d$
+$
+================================================================================
+
+|> WITH [SETUP mkdir -m 010 d] echo $PWD; echo $OLDPWD; cd d; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+minishell: cd: d: Permission denied$
+$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd d$
+$
+================================================================================
+
+|> WITH [SETUP mkdir -m 020 d] echo $PWD; echo $OLDPWD; cd d; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+minishell: cd: d: Permission denied$
+$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd d$
+$
+================================================================================
+
+|> WITH [SETUP mkdir -m 030 d] echo $PWD; echo $OLDPWD; cd d; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+minishell: cd: d: Permission denied$
+$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd d$
+$
+================================================================================
+
+|> WITH [SETUP mkdir -m 040 d] echo $PWD; echo $OLDPWD; cd d; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+minishell: cd: d: Permission denied$
+$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd d$
+$
+================================================================================
+
+|> WITH [SETUP mkdir -m 050 d] echo $PWD; echo $OLDPWD; cd d; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+minishell: cd: d: Permission denied$
+$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd d$
+$
+================================================================================
+
+|> WITH [SETUP mkdir -m 060 d] echo $PWD; echo $OLDPWD; cd d; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+minishell: cd: d: Permission denied$
+$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd d$
+$
+================================================================================
+
+|> WITH [SETUP mkdir -m 070 d] echo $PWD; echo $OLDPWD; cd d; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+minishell: cd: d: Permission denied$
+$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd d$
+$
+================================================================================
+
+|> WITH [SETUP mkdir -m 100 d] echo $PWD; echo $OLDPWD; cd d; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+/Users/a79856/.cache/minishell_test/sandbox$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd d$
+$
+================================================================================
+
+|> WITH [SETUP mkdir -m 200 d] echo $PWD; echo $OLDPWD; cd d; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+minishell: cd: d: Permission denied$
+$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd d$
+$
+================================================================================
+
+|> WITH [SETUP mkdir -m 300 d] echo $PWD; echo $OLDPWD; cd d; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+/Users/a79856/.cache/minishell_test/sandbox$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd d$
+$
+================================================================================
+
+|> WITH [SETUP mkdir -m 400 d] echo $PWD; echo $OLDPWD; cd d; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+minishell: cd: d: Permission denied$
+$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd d$
+$
+================================================================================
+
+|> WITH [SETUP mkdir -m 500 d] echo $PWD; echo $OLDPWD; cd d; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+/Users/a79856/.cache/minishell_test/sandbox$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd d$
+$
+================================================================================
+
+|> WITH [SETUP mkdir -m 600 d] echo $PWD; echo $OLDPWD; cd d; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+minishell: cd: d: Permission denied$
+$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd d$
+$
+================================================================================
+
+|> WITH [SETUP mkdir -m 700 d] echo $PWD; echo $OLDPWD; cd d; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+/Users/a79856/.cache/minishell_test/sandbox$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd d$
+$
+================================================================================
+
+|> WITH [SETUP mkdir -m 755 d] echo $PWD; echo $OLDPWD; cd d; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+/Users/a79856/.cache/minishell_test/sandbox$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd d$
+$
+================================================================================
+
+|> WITH [SETUP mkdir -m 644 d] echo $PWD; echo $OLDPWD; cd d; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+minishell: cd: d: Permission denied$
+$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd d$
+$
+================================================================================
+
+|> WITH [SETUP mkdir -m 311 d] echo $PWD; echo $OLDPWD; cd d; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+/Users/a79856/.cache/minishell_test/sandbox$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd d$
+$
+================================================================================
+
+|> WITH [SETUP mkdir -m 111 d] echo $PWD; echo $OLDPWD; cd d; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+/Users/a79856/.cache/minishell_test/sandbox$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd d$
+$
+================================================================================
+
+|> WITH [SETUP mkdir -m 222 d] echo $PWD; echo $OLDPWD; cd d; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+minishell: cd: d: Permission denied$
+$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd d$
+$
+================================================================================
+
+|> WITH [SETUP mkdir -m 333 d] echo $PWD; echo $OLDPWD; cd d; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+/Users/a79856/.cache/minishell_test/sandbox$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd d$
+$
+================================================================================
+
+|> WITH [SETUP mkdir -m 0777 d] echo $PWD; echo $OLDPWD; cd d; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+/Users/a79856/.cache/minishell_test/sandbox$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd d$
+$
+================================================================================
+
+|> WITH [SETUP mkdir -m 1000 d] echo $PWD; echo $OLDPWD; cd d; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+minishell: cd: d: Permission denied$
+$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd d$
+$
+================================================================================
+
+|> WITH [SETUP mkdir -m 2000 d] echo $PWD; echo $OLDPWD; cd d; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+minishell: cd: d: Permission denied$
+$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd d$
+$
+================================================================================
+
+|> WITH [SETUP mkdir -m 3000 d] echo $PWD; echo $OLDPWD; cd d; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+minishell: cd: d: Permission denied$
+$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd d$
+$
+================================================================================
+
+|> WITH [SETUP mkdir -m 4000 d] echo $PWD; echo $OLDPWD; cd d; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+minishell: cd: d: Permission denied$
+$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd d$
+$
+================================================================================
+
+|> WITH [SETUP mkdir -m 5000 d] echo $PWD; echo $OLDPWD; cd d; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+minishell: cd: d: Permission denied$
+$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd d$
+$
+================================================================================
+
+|> WITH [SETUP mkdir -m 6000 d] echo $PWD; echo $OLDPWD; cd d; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+minishell: cd: d: Permission denied$
+$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd d$
+$
+================================================================================
+
+|> WITH [SETUP mkdir -m 7000 d] echo $PWD; echo $OLDPWD; cd d; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+minishell: cd: d: Permission denied$
+$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd d$
+$
+================================================================================
+
+|> WITH [SETUP mkdir -m 1777 d] echo $PWD; echo $OLDPWD; cd d; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+/Users/a79856/.cache/minishell_test/sandbox$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd d$
+$
+================================================================================
+
+|> WITH [SETUP mkdir -m 2777 d] echo $PWD; echo $OLDPWD; cd d; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+/Users/a79856/.cache/minishell_test/sandbox$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd d$
+$
+================================================================================
+
+|> WITH [SETUP mkdir -m 3777 d] echo $PWD; echo $OLDPWD; cd d; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+/Users/a79856/.cache/minishell_test/sandbox$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd d$
+$
+================================================================================
+
+|> WITH [SETUP mkdir -m 4777 d] echo $PWD; echo $OLDPWD; cd d; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+/Users/a79856/.cache/minishell_test/sandbox$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd d$
+$
+================================================================================
+
+|> WITH [SETUP mkdir -m 5777 d] echo $PWD; echo $OLDPWD; cd d; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+/Users/a79856/.cache/minishell_test/sandbox$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd d$
+$
+================================================================================
+
+|> WITH [SETUP mkdir -m 6777 d] echo $PWD; echo $OLDPWD; cd d; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+/Users/a79856/.cache/minishell_test/sandbox$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd d$
+$
+================================================================================
+
+|> WITH [SETUP mkdir -m 7777 d] echo $PWD; echo $OLDPWD; cd d; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+/Users/a79856/.cache/minishell_test/sandbox$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd d$
+$
+================================================================================
+
+|> WITH [SETUP mkdir -m 0000 d] echo $PWD; echo $OLDPWD; cd d; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+minishell: cd: d: Permission denied$
+$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd d$
+$
+================================================================================
+
+|> WITH echo $PWD; echo $OLDPWD; cd /; echo $PWD; echo $OLDPWD; unset PWD; cd /dev; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+/$
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd /$
+/Users/a79856/.cache/minishell_test/sandbox echo  unset PWD$
+/Users/a79856/.cache/minishell_test/sandbox$
+================================================================================
+
+|> WITH echo $PWD; echo $OLDPWD; cd /; echo $PWD; echo $OLDPWD; export PWD=bonjour; cd /dev; echo $OLDPWD\n
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+$
+/$
+/Users/a79856/.cache/minishell_test/sandbox$
+bonjour$
+|---------------------------------------ACTUAL----------------------------------
+/Users/a79856/.cache/minishell_test/sandbox echo  cd /$
+/Users/a79856/.cache/minishell_test/sandbox echo  export PWD=bonjour$
+/Users/a79856/.cache/minishell_test/sandbox$
+================================================================================
+
+|> WITH [EXPORTS PATH='/bin:/usr/bin'] Cd .\n
+|  STATUS: expected 0 actual 127
+|---------------------------------------EXPECTED--------------------------------
+|---------------------------------------ACTUAL----------------------------------
+minishell: Cd: command not found$
+================================================================================
+
+|> WITH [EXPORTS PATH='/bin:/usr/bin'] cD .\n
+|  STATUS: expected 0 actual 127
+|---------------------------------------EXPECTED--------------------------------
+|---------------------------------------ACTUAL----------------------------------
+minishell: cD: command not found$
+================================================================================
+
+|> WITH [EXPORTS PATH='/bin:/usr/bin'] Echo bonjour\n
+|  STATUS: expected 0 actual 127
+|---------------------------------------EXPECTED--------------------------------
+bonjour$
+|---------------------------------------ACTUAL----------------------------------
+minishell: Echo: command not found$
+================================================================================
+
+|> WITH [EXPORTS PATH='/bin:/usr/bin'] eCho bonjour\n
+|  STATUS: expected 0 actual 127
+|---------------------------------------EXPECTED--------------------------------
+bonjour$
+|---------------------------------------ACTUAL----------------------------------
+minishell: eCho: command not found$
+================================================================================
+
+|> WITH [EXPORTS PATH='/bin:/usr/bin'] ecHo bonjour\n
+|  STATUS: expected 0 actual 127
+|---------------------------------------EXPECTED--------------------------------
+bonjour$
+|---------------------------------------ACTUAL----------------------------------
+minishell: ecHo: command not found$
+================================================================================
+
+|> WITH [EXPORTS PATH='/bin:/usr/bin'] echO bonjour\n
+|  STATUS: expected 0 actual 127
+|---------------------------------------EXPECTED--------------------------------
+bonjour$
+|---------------------------------------ACTUAL----------------------------------
+minishell: echO: command not found$
+================================================================================
+
+|> WITH [EXPORTS PATH='/bin:/usr/bin'] EchO bonjour\n
+|  STATUS: expected 0 actual 127
+|---------------------------------------EXPECTED--------------------------------
+bonjour$
+|---------------------------------------ACTUAL----------------------------------
+minishell: EchO: command not found$
+================================================================================
+
+|> WITH [EXPORTS PATH='/bin:/usr/bin'] eCHo bonjour\n
+|  STATUS: expected 0 actual 127
+|---------------------------------------EXPECTED--------------------------------
+bonjour$
+|---------------------------------------ACTUAL----------------------------------
+minishell: eCHo: command not found$
+================================================================================
+
+|> WITH [EXPORTS PATH='/bin:/usr/bin'] EcHo bonjour\n
+|  STATUS: expected 0 actual 127
+|---------------------------------------EXPECTED--------------------------------
+bonjour$
+|---------------------------------------ACTUAL----------------------------------
+minishell: EcHo: command not found$
+================================================================================
+
+|> WITH [EXPORTS PATH='/bin:/usr/bin'] eChO bonjour\n
+|  STATUS: expected 0 actual 127
+|---------------------------------------EXPECTED--------------------------------
+bonjour$
+|---------------------------------------ACTUAL----------------------------------
+minishell: eChO: command not found$
+================================================================================
+
+|> WITH [EXPORTS PATH='/bin:/usr/bin'] eChO -e 'bonjo\nur'\n
+|  STATUS: expected 0 actual 127
+|---------------------------------------EXPECTED--------------------------------
+-e bonjo\nur$
+|---------------------------------------ACTUAL----------------------------------
+minishell: eChO: command not found$
+================================================================================
+
+|> WITH env\n
+|---------------------------------------EXPECTED--------------------------------
+$
+PATH=/Users/a79856/.cache/minishell_test/bin$
+PWD=/Users/a79856/.cache/minishell_test/sandbox$
+SHLVL=1$
+TERM=xterm-256color$
+_=/Users/a79856/.cache/minishell_test/bin/env
+|---------------------------------------ACTUAL----------------------------------
+$
+PATH=/Users/a79856/.cache/minishell_test/bin$
+PWD=/Users/a79856/.cache/minishell_test/sandbox$
+SHLVL=1$
+TERM=xterm-256color
+================================================================================
+
+|> WITH [SETUP export A=a] env\n
+|---------------------------------------EXPECTED--------------------------------
+$
+PATH=/Users/a79856/.cache/minishell_test/bin$
+PWD=/Users/a79856/.cache/minishell_test/sandbox$
+SHLVL=1$
+TERM=xterm-256color$
+_=/Users/a79856/.cache/minishell_test/bin/env
+|---------------------------------------ACTUAL----------------------------------
+$
+PATH=/Users/a79856/.cache/minishell_test/bin$
+PWD=/Users/a79856/.cache/minishell_test/sandbox$
+SHLVL=1$
+TERM=xterm-256color
+================================================================================
+
+|> WITH [SETUP export A=a B=b C=c] env\n
+|---------------------------------------EXPECTED--------------------------------
+$
+PATH=/Users/a79856/.cache/minishell_test/bin$
+PWD=/Users/a79856/.cache/minishell_test/sandbox$
+SHLVL=1$
+TERM=xterm-256color$
+_=/Users/a79856/.cache/minishell_test/bin/env
+|---------------------------------------ACTUAL----------------------------------
+$
+PATH=/Users/a79856/.cache/minishell_test/bin$
+PWD=/Users/a79856/.cache/minishell_test/sandbox$
+SHLVL=1$
+TERM=xterm-256color
+================================================================================
+
+|> WITH [SETUP export A=a B=b C=c] env | cat -e\n
+|---------------------------------------EXPECTED--------------------------------
+$
+PATH=/Users/a79856/.cache/minishell_test/bin$$
+PWD=/Users/a79856/.cache/minishell_test/sandbox$$
+SHLVL=1$$
+TERM=xterm-256color$$
+_=/Users/a79856/.cache/minishell_test/bin/env$
+|---------------------------------------ACTUAL----------------------------------
+$
+PATH=/Users/a79856/.cache/minishell_test/bin$$
+PWD=/Users/a79856/.cache/minishell_test/sandbox$$
+SHLVL=1$$
+TERM=xterm-256color$
+================================================================================
+
+|> WITH Env\n
+|  STATUS: expected 0 actual 127
+|---------------------------------------EXPECTED--------------------------------
+TERM=xterm-256color$
+PATH=/Users/a79856/.cache/minishell_test/bin$
+PWD=/Users/a79856/.cache/minishell_test/sandbox$
+SHLVL=1$
+_=/Users/a79856/.cache/minishell_test/bin/Env$
+|---------------------------------------ACTUAL----------------------------------
+minishell: Env: command not found$
+================================================================================
+
+|> WITH enV\n
+|  STATUS: expected 0 actual 127
+|---------------------------------------EXPECTED--------------------------------
+TERM=xterm-256color$
+PATH=/Users/a79856/.cache/minishell_test/bin$
+PWD=/Users/a79856/.cache/minishell_test/sandbox$
+SHLVL=1$
+_=/Users/a79856/.cache/minishell_test/bin/enV$
+|---------------------------------------ACTUAL----------------------------------
+minishell: enV: command not found$
+================================================================================
+
+|> WITH [EXPORTS PATH='/bin:/usr/bin'] Env\n
+|  STATUS: expected 0 actual 127
+|---------------------------------------EXPECTED--------------------------------
+TERM=xterm-256color$
+PATH=/bin:/usr/bin$
+PWD=/Users/a79856/.cache/minishell_test/sandbox$
+SHLVL=1$
+_=/usr/bin/Env$
+|---------------------------------------ACTUAL----------------------------------
+minishell: Env: command not found$
+================================================================================
+
+|> WITH [EXPORTS PATH='/bin:/usr/bin'] enV\n
+|  STATUS: expected 0 actual 127
+|---------------------------------------EXPECTED--------------------------------
+TERM=xterm-256color$
+PATH=/bin:/usr/bin$
+PWD=/Users/a79856/.cache/minishell_test/sandbox$
+SHLVL=1$
+_=/usr/bin/enV$
+|---------------------------------------ACTUAL----------------------------------
+minishell: enV: command not found$
+================================================================================
+
+|> WITH exit '3\r'\n
+|  STATUS: expected 255 actual 2
+================================================================================
+
+|> WITH exit '3\t\f\r '\n
+|  STATUS: expected 255 actual 2
+================================================================================
+
+|> WITH exit '3     a'\n
+|  STATUS: expected 255 actual 2
+================================================================================
+
+|> WITH exit '3\t\t\ta'\n
+|  STATUS: expected 255 actual 2
+================================================================================
+
+|> WITH exit -9223372036854775809\n
+|  STATUS: expected 255 actual 2
+================================================================================
+
+|> WITH exit 9223372036854775808\n
+|  STATUS: expected 255 actual 2
+================================================================================
+
+|> WITH exit 18446744073709551615\n
+|  STATUS: expected 255 actual 2
+================================================================================
+
+|> WITH exit 18446744073709551616\n
+|  STATUS: expected 255 actual 2
+================================================================================
+
+|> WITH exit ++1\n
+|  STATUS: expected 255 actual 2
+================================================================================
+
+|> WITH exit ++2\n
+|  STATUS: expected 255 actual 2
+================================================================================
+
+|> WITH exit ++3\n
+|  STATUS: expected 255 actual 2
+================================================================================
+
+|> WITH exit ++0\n
+|  STATUS: expected 255 actual 2
+================================================================================
+
+|> WITH exit ++255\n
+|  STATUS: expected 255 actual 2
+================================================================================
+
+|> WITH exit ++256\n
+|  STATUS: expected 255 actual 2
+================================================================================
+
+|> WITH exit ++2000000\n
+|  STATUS: expected 255 actual 2
+================================================================================
+
+|> WITH exit ++2147483647\n
+|  STATUS: expected 255 actual 2
+================================================================================
+
+|> WITH exit --1\n
+|  STATUS: expected 255 actual 2
+================================================================================
+
+|> WITH exit --2\n
+|  STATUS: expected 255 actual 2
+================================================================================
+
+|> WITH exit --3\n
+|  STATUS: expected 255 actual 2
+================================================================================
+
+|> WITH exit --0\n
+|  STATUS: expected 255 actual 2
+================================================================================
+
+|> WITH exit --255\n
+|  STATUS: expected 255 actual 2
+================================================================================
+
+|> WITH exit --256\n
+|  STATUS: expected 255 actual 2
+================================================================================
+
+|> WITH exit --2000000\n
+|  STATUS: expected 255 actual 2
+================================================================================
+
+|> WITH exit --2147483647\n
+|  STATUS: expected 255 actual 2
+================================================================================
+
+|> WITH exit bonjour\n
+|  STATUS: expected 255 actual 2
+================================================================================
+
+|> WITH exit 0_\n
+|  STATUS: expected 255 actual 2
+================================================================================
+
+|> WITH exit _0\n
+|  STATUS: expected 255 actual 2
+================================================================================
+
+|> WITH exit -9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999\n
+|  STATUS: expected 255 actual 2
+================================================================================
+
+|> WITH exit 9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999\n
+|  STATUS: expected 255 actual 2
+================================================================================
+
+|> WITH exit bonjour 0\n
+|  STATUS: expected 255 actual 2
+================================================================================
+
+|> WITH exit Mollitia asperiores assumenda excepturi et ipsa. Nihil corporis facere aut a rem consequatur. Quas molestiae corporis et quibusdam maiores. Molestiae sed unde aut at sed. Deserunt quidem quidem aspernatur pariatur vel illum voluptatum. Culpa unde dolor aspernatur sit. Mollitia tenetur sed eaque autem placeat a aut in. Ipsam ea consequuntur omnis. Non et qui vel corrupti similique eum aut voluptatibus. Iste consequatur voluptatum et omnis debitis. Sit quia neque nihil consequatur sint. Velit libero ut aut et et rerum. Placeat cumque incidunt non repellat sunt perspiciatis ullam. Repellendus repudiandae nostrum quia quis corrupti. Rerum veniam earum cumque pariatur accusantium voluptatum omnis. Alias ut et et adipisci. Tempore omnis numquam ullam et animi et eveniet. Dolor itaque distinctio in. Magnam rerum quia est laboriosam repellat perspiciatis eos. Consequuntur quae corrupti atque. Numquam enim ut ut. Perspiciatis ut maxime et libero quo voluptas consequatur illum. Pariatur porro dolor cumque molestiae harum. \n
+|  STATUS: expected 255 actual 2
+================================================================================
+
+|> WITH exit bonjoru; echo should have exited\n
+|  STATUS: expected 255 actual 2
+================================================================================
+
+|> WITH exit 99999999999999999999999999999999999999999999999999999; echo should have exited\n
+|  STATUS: expected 255 actual 2
+|---------------------------------------EXPECTED--------------------------------
+minishell: exit: 99999999999999999999999999999999999999999999999999999: numeric argument required$
+|---------------------------------------ACTUAL----------------------------------
+minishell: exit: it 9999999999999999999999999999999999999999999999999: numeric argument required$
+================================================================================
+
+|> WITH exit 9999; echo should have exited\n
+|  STATUS: expected 15 actual 2
+|---------------------------------------EXPECTED--------------------------------
+|---------------------------------------ACTUAL----------------------------------
+minishell: exit: it : numeric argument required$
+================================================================================
+
+|> WITH export A=a B=b C=c; echo $A$B$C\n
+|---------------------------------------EXPECTED--------------------------------
+abc$
+|---------------------------------------ACTUAL----------------------------------
+aBc$
+================================================================================
+
+|> WITH export A=a B=b C=c D=d E=e F=f G=g H=h I=i J=j K=k L=lM=m N=n O=o P=p Q=q R=r S=s T=t U=u V=v W=w X=x Y=y Z=z; echo $A$B$C$D$E$F$G$H$I$J$K$L$M$N$O$P$Q$R$S$T$U$V$W$X$Y$Z\n
+|---------------------------------------EXPECTED--------------------------------
+abcdefghijklM=mnopqrstuvwxyz$
+|---------------------------------------ACTUAL----------------------------------
+aBcDeFgHiJkLNoPqRsTuVwXyZ$
+================================================================================
+
+|> WITH export \B\O\N\ \ \ \ \ \ \ JOURJESUIS=a\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: export: `BON       JOURJESUIS=a': not a valid identifier$
+|---------------------------------------ACTUAL----------------------------------
+minishell: export: `BON! ! ! ! ! ! ! JOURJESUIS=a': not a valid identifier$
+================================================================================
+
+|> WITH export A 'asdf ' B ' asdf asdf asd f' ' asdf ' '' 'asdf ' C; echo $A$B$C\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: export: `asdf ': not a valid identifier$
+minishell: export: ` asdf asdf asd f': not a valid identifier$
+minishell: export: ` asdf ': not a valid identifier$
+minishell: export: `': not a valid identifier$
+minishell: export: `asdf ': not a valid identifier$
+$
+|---------------------------------------ACTUAL----------------------------------
+minishell: export: `asdf ': not a valid identifier$
+minishell: export: ` asdf asdf asd f': not a valid identifier$
+minishell: export: ` asdf ': not a valid identifier$
+minishell: export: `': not a valid identifier$
+minishell: export: `asdf ': not a valid identifier$
+B$
+================================================================================
+
+|> WITH export 'asdf ' B ' asdf asdf asd f' ' asdf ' '' 'asdf ' C; echo $A$B$C\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: export: `asdf ': not a valid identifier$
+minishell: export: ` asdf asdf asd f': not a valid identifier$
+minishell: export: ` asdf ': not a valid identifier$
+minishell: export: `': not a valid identifier$
+minishell: export: `asdf ': not a valid identifier$
+$
+|---------------------------------------ACTUAL----------------------------------
+minishell: export: `asdf ': not a valid identifier$
+minishell: export: ` asdf asdf asd f': not a valid identifier$
+minishell: export: ` asdf ': not a valid identifier$
+minishell: export: `': not a valid identifier$
+minishell: export: `asdf ': not a valid identifier$
+B$
+================================================================================
+
+|> WITH export A 'asdf ' B ' asdf asdf asd f' ' asdf ' '' 'asdf '; echo $A$B$C\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: export: `asdf ': not a valid identifier$
+minishell: export: ` asdf asdf asd f': not a valid identifier$
+minishell: export: ` asdf ': not a valid identifier$
+minishell: export: `': not a valid identifier$
+minishell: export: `asdf ': not a valid identifier$
+$
+|---------------------------------------ACTUAL----------------------------------
+minishell: export: `asdf ': not a valid identifier$
+minishell: export: ` asdf asdf asd f': not a valid identifier$
+minishell: export: ` asdf ': not a valid identifier$
+minishell: export: `': not a valid identifier$
+minishell: export: `asdf ': not a valid identifier$
+B$
+================================================================================
+
+|> WITH export A B C; echo $A$B$C\n
+|---------------------------------------EXPECTED--------------------------------
+$
+|---------------------------------------ACTUAL----------------------------------
+B$
+================================================================================
+
+|> WITH export A B C; env\n
+|---------------------------------------EXPECTED--------------------------------
+$
+PATH=/Users/a79856/.cache/minishell_test/bin$
+PWD=/Users/a79856/.cache/minishell_test/sandbox$
+SHLVL=1$
+TERM=xterm-256color$
+_=/Users/a79856/.cache/minishell_test/bin/env
+|---------------------------------------ACTUAL----------------------------------
+$
+PATH=/Users/a79856/.cache/minishell_test/bin$
+PWD=/Users/a79856/.cache/minishell_test/sandbox$
+SHLVL=1$
+TERM=xterm-256color
+================================================================================
+
+|> WITH export 'AH\'=nop\n
+|  STATUS: expected 1 actual 2
+|---------------------------------------EXPECTED--------------------------------
+minishell: export: `AH\=nop': not a valid identifier$
+|---------------------------------------ACTUAL----------------------------------
+minishell: syntax error: unexpected end of file$
+================================================================================
+
+|> WITH [EXPORTS PATH='/bin:/usr/bin'] Pwd\n
+|  STATUS: expected 0 actual 127
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+|---------------------------------------ACTUAL----------------------------------
+minishell: Pwd: command not found$
+================================================================================
+
+|> WITH [EXPORTS PATH='/bin:/usr/bin'] pwD\n
+|  STATUS: expected 0 actual 127
+|---------------------------------------EXPECTED--------------------------------
+/Users/a79856/.cache/minishell_test/sandbox$
+|---------------------------------------ACTUAL----------------------------------
+minishell: pwD: command not found$
+================================================================================
+
+|> WITH [EXPORTS A='a' B='b' C='c'] unset A B C; echo $A$B$C\n
+|---------------------------------------EXPECTED--------------------------------
+$
+|---------------------------------------ACTUAL----------------------------------
+B$
+================================================================================
+
+|> WITH [EXPORTS A='a' B='b' C='c'] unset A 'asdf ' B ' asdf asdf asd f' ' asdf ' '' 'asdf ' C; echo $A$B$C\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: unset: `asdf ': not a valid identifier$
+minishell: unset: ` asdf asdf asd f': not a valid identifier$
+minishell: unset: ` asdf ': not a valid identifier$
+minishell: unset: `': not a valid identifier$
+minishell: unset: `asdf ': not a valid identifier$
+$
+|---------------------------------------ACTUAL----------------------------------
+minishell: unset: `asdf ': not a valid identifier$
+minishell: unset: ` asdf asdf asd f': not a valid identifier$
+minishell: unset: ` asdf ': not a valid identifier$
+minishell: unset: `': not a valid identifier$
+minishell: unset: `asdf ': not a valid identifier$
+B$
+================================================================================
+
+|> WITH [EXPORTS A='a' B='b' C='c'] unset 'asdf ' B ' asdf asdf asd f' ' asdf ' '' 'asdf ' C; echo $A$B$C\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: unset: `asdf ': not a valid identifier$
+minishell: unset: ` asdf asdf asd f': not a valid identifier$
+minishell: unset: ` asdf ': not a valid identifier$
+minishell: unset: `': not a valid identifier$
+minishell: unset: `asdf ': not a valid identifier$
+a$
+|---------------------------------------ACTUAL----------------------------------
+minishell: unset: `asdf ': not a valid identifier$
+minishell: unset: ` asdf asdf asd f': not a valid identifier$
+minishell: unset: ` asdf ': not a valid identifier$
+minishell: unset: `': not a valid identifier$
+minishell: unset: `asdf ': not a valid identifier$
+aB$
+================================================================================
+
+|> WITH [EXPORTS A='a' B='b' C='c'] unset A 'asdf ' B ' asdf asdf asd f' ' asdf ' '' 'asdf '; echo $A$B$C\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: unset: `asdf ': not a valid identifier$
+minishell: unset: ` asdf asdf asd f': not a valid identifier$
+minishell: unset: ` asdf ': not a valid identifier$
+minishell: unset: `': not a valid identifier$
+minishell: unset: `asdf ': not a valid identifier$
+c$
+|---------------------------------------ACTUAL----------------------------------
+minishell: unset: `asdf ': not a valid identifier$
+minishell: unset: ` asdf asdf asd f': not a valid identifier$
+minishell: unset: ` asdf ': not a valid identifier$
+minishell: unset: `': not a valid identifier$
+minishell: unset: `asdf ': not a valid identifier$
+Bc$
+================================================================================
+
+|> WITH [EXPORTS A='a' B='b' C='c'] unset A; echo $A$B$C\n
+|---------------------------------------EXPECTED--------------------------------
+bc$
+|---------------------------------------ACTUAL----------------------------------
+Bc$
+================================================================================
+
+|> WITH [EXPORTS A='a' B='b' C='c'] unset C; echo $A$B$C\n
+|---------------------------------------EXPECTED--------------------------------
+ab$
+|---------------------------------------ACTUAL----------------------------------
+aB$
+================================================================================
+
+|> WITH unset 'AH\'=nop\n
+|  STATUS: expected 1 actual 2
+|---------------------------------------EXPECTED--------------------------------
+minishell: unset: `AH\=nop': not a valid identifier$
+|---------------------------------------ACTUAL----------------------------------
+minishell: syntax error: unexpected end of file$
+================================================================================
+
+|> WITH echo \t\v\f\r !#$%*+,-./0123456789:;=?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_abcdefghijklmnopqrstuvwxyz{}~\n
+|---------------------------------------EXPECTED--------------------------------
+  !#$%*+,-./0123456789:$
+minishell: =?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_abcdefghijklmnopqrstuvwxyz{}~: command not found$
+|---------------------------------------ACTUAL----------------------------------
+  !#$% *+,-./0123456789:$
+minishell: =?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_abcdefghijklmnopqrstuvwxyz{}~: command not found$
+================================================================================
+
+|> WITH [SETUP mkdir somedir] somedir/\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: somedir/: is a directory$
+|---------------------------------------ACTUAL----------------------------------
+minishell: somedir/: Is a directory$
+================================================================================
+
+|> WITH [SETUP mkdir somedir] ./somedir/\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: ./somedir/: is a directory$
+|---------------------------------------ACTUAL----------------------------------
+minishell: ./somedir/: Is a directory$
+================================================================================
+
+|> WITH [SETUP mkdir somedir] ./somedir\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: ./somedir: is a directory$
+|---------------------------------------ACTUAL----------------------------------
+minishell: ./somedir: Is a directory$
+================================================================================
+
+|> WITH [SETUP mkdir somedir; ln -s somedir somedirsoftlink] somedirsoftlink/\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: somedirsoftlink/: is a directory$
+|---------------------------------------ACTUAL----------------------------------
+minishell: somedirsoftlink/: Is a directory$
+================================================================================
+
+|> WITH [SETUP mkdir somedir; ln -s somedir somedirsoftlink] ./somedirsoftlink/\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: ./somedirsoftlink/: is a directory$
+|---------------------------------------ACTUAL----------------------------------
+minishell: ./somedirsoftlink/: Is a directory$
+================================================================================
+
+|> WITH [SETUP mkdir somedir; ln -s somedir somedirsoftlink] ./somedirsoftlink\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: ./somedirsoftlink: is a directory$
+|---------------------------------------ACTUAL----------------------------------
+minishell: ./somedirsoftlink: Is a directory$
+================================================================================
+
+|> WITH [SETUP touch .] ./.\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: ./.: is a directory$
+|---------------------------------------ACTUAL----------------------------------
+minishell: ./.: Is a directory$
+================================================================================
+
+|> WITH [SETUP touch ..] ./..\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: ./..: is a directory$
+|---------------------------------------ACTUAL----------------------------------
+minishell: ./..: Is a directory$
+================================================================================
+
+|> WITH [SETUP mkdir -m 0777 somedir] ./somedir\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: ./somedir: is a directory$
+|---------------------------------------ACTUAL----------------------------------
+minishell: ./somedir: Is a directory$
+================================================================================
+
+|> WITH [SETUP mkdir -m 1000 somedir] ./somedir\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: ./somedir: is a directory$
+|---------------------------------------ACTUAL----------------------------------
+minishell: ./somedir: Is a directory$
+================================================================================
+
+|> WITH [SETUP mkdir -m 2000 somedir] ./somedir\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: ./somedir: is a directory$
+|---------------------------------------ACTUAL----------------------------------
+minishell: ./somedir: Is a directory$
+================================================================================
+
+|> WITH [SETUP mkdir -m 3000 somedir] ./somedir\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: ./somedir: is a directory$
+|---------------------------------------ACTUAL----------------------------------
+minishell: ./somedir: Is a directory$
+================================================================================
+
+|> WITH [SETUP mkdir -m 4000 somedir] ./somedir\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: ./somedir: is a directory$
+|---------------------------------------ACTUAL----------------------------------
+minishell: ./somedir: Is a directory$
+================================================================================
+
+|> WITH [SETUP mkdir -m 5000 somedir] ./somedir\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: ./somedir: is a directory$
+|---------------------------------------ACTUAL----------------------------------
+minishell: ./somedir: Is a directory$
+================================================================================
+
+|> WITH [SETUP mkdir -m 6000 somedir] ./somedir\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: ./somedir: is a directory$
+|---------------------------------------ACTUAL----------------------------------
+minishell: ./somedir: Is a directory$
+================================================================================
+
+|> WITH [SETUP mkdir -m 7000 somedir] ./somedir\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: ./somedir: is a directory$
+|---------------------------------------ACTUAL----------------------------------
+minishell: ./somedir: Is a directory$
+================================================================================
+
+|> WITH [SETUP mkdir -m 1777 somedir] ./somedir\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: ./somedir: is a directory$
+|---------------------------------------ACTUAL----------------------------------
+minishell: ./somedir: Is a directory$
+================================================================================
+
+|> WITH [SETUP mkdir -m 2777 somedir] ./somedir\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: ./somedir: is a directory$
+|---------------------------------------ACTUAL----------------------------------
+minishell: ./somedir: Is a directory$
+================================================================================
+
+|> WITH [SETUP mkdir -m 3777 somedir] ./somedir\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: ./somedir: is a directory$
+|---------------------------------------ACTUAL----------------------------------
+minishell: ./somedir: Is a directory$
+================================================================================
+
+|> WITH [SETUP mkdir -m 4777 somedir] ./somedir\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: ./somedir: is a directory$
+|---------------------------------------ACTUAL----------------------------------
+minishell: ./somedir: Is a directory$
+================================================================================
+
+|> WITH [SETUP mkdir -m 5777 somedir] ./somedir\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: ./somedir: is a directory$
+|---------------------------------------ACTUAL----------------------------------
+minishell: ./somedir: Is a directory$
+================================================================================
+
+|> WITH [SETUP mkdir -m 6777 somedir] ./somedir\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: ./somedir: is a directory$
+|---------------------------------------ACTUAL----------------------------------
+minishell: ./somedir: Is a directory$
+================================================================================
+
+|> WITH [SETUP mkdir -m 0000 somedir] ./somedir\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: ./somedir: is a directory$
+|---------------------------------------ACTUAL----------------------------------
+minishell: ./somedir: Is a directory$
+================================================================================
+
+|> WITH [SETUP echo > somefile && chmod 000 somefile] ./Somefile\n
+|  STATUS: expected 126 actual 127
+|---------------------------------------EXPECTED--------------------------------
+minishell: ./Somefile: Permission denied$
+|---------------------------------------ACTUAL----------------------------------
+minishell: ./Somefile: No such file or directory$
+================================================================================
+
+|> WITH [SETUP echo > somefile && chmod 000 somefile] ./someFILE\n
+|  STATUS: expected 126 actual 127
+|---------------------------------------EXPECTED--------------------------------
+minishell: ./someFILE: Permission denied$
+|---------------------------------------ACTUAL----------------------------------
+minishell: ./someFILE: No such file or directory$
+================================================================================
+
+|> WITH >\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: syntax error near unexpected token `newline'$
+|---------------------------------------ACTUAL----------------------------------
+syntax error near unexpected token `newline`$
+================================================================================
+
+|> WITH >>\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: syntax error near unexpected token `newline'$
+|---------------------------------------ACTUAL----------------------------------
+syntax error near unexpected token `newline`$
+================================================================================
+
+|> WITH <\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: syntax error near unexpected token `newline'$
+|---------------------------------------ACTUAL----------------------------------
+syntax error near unexpected token `newline`$
+================================================================================
+
+|> WITH echo >\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: syntax error near unexpected token `newline'$
+|---------------------------------------ACTUAL----------------------------------
+syntax error near unexpected token `newline`$
+================================================================================
+
+|> WITH echo >>\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: syntax error near unexpected token `newline'$
+|---------------------------------------ACTUAL----------------------------------
+syntax error near unexpected token `newline`$
+================================================================================
+
+|> WITH echo <\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: syntax error near unexpected token `newline'$
+|---------------------------------------ACTUAL----------------------------------
+syntax error near unexpected token `newline`$
+================================================================================
+
+|> WITH echo foo >>> bar\n
+|  STATUS: expected 2 actual 0
+|---------------------------------------EXPECTED--------------------------------
+minishell: syntax error near unexpected token `>'$
+|---------------------------------------ACTUAL----------------------------------
+================================================================================
+
+|> WITH echo foo >>>> bar\n
+|  STATUS: expected 2 actual 0
+|---------------------------------------EXPECTED--------------------------------
+minishell: syntax error near unexpected token `>>'$
+|---------------------------------------ACTUAL----------------------------------
+================================================================================
+
+|> WITH echo foo >>>>> bar\n
+|  STATUS: expected 2 actual 0
+|---------------------------------------EXPECTED--------------------------------
+minishell: syntax error near unexpected token `>>'$
+|---------------------------------------ACTUAL----------------------------------
+================================================================================
+
+|> WITH [SETUP echo bonjour > bar] cat << < bar\n
+TIMEOUT
+================================================================================
+
+|> WITH [SETUP echo bonjour > bar] cat << << bar\n
+TIMEOUT
+================================================================================
+
+|> WITH [SETUP echo bonjour > bar] cat <<<<< bar\n
+|  STATUS: expected 2 actual 1
+|---------------------------------------EXPECTED--------------------------------
+minishell: syntax error near unexpected token `<<'$
+|---------------------------------------ACTUAL----------------------------------
+cat: \001\002<<\003\023: No such file or directory$
+cat: \001\002<<\003\023: No such file or directory$
+================================================================================
+
+|> WITH echo $?\n
+|---------------------------------------EXPECTED--------------------------------
+0$
+|---------------------------------------ACTUAL----------------------------------
+0$
+$
+lol$
+================================================================================
+
+|> WITH echo; echo $?\n
+|---------------------------------------EXPECTED--------------------------------
+$
+0$
+|---------------------------------------ACTUAL----------------------------------
+$
+0_test/sandbox$
+$
+lol$
+================================================================================
+
+|> WITH notfound; echo $?\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: notfound: command not found$
+127$
+|---------------------------------------ACTUAL----------------------------------
+minishell: notfound: command not found$
+$
+lol$
+127t/sandbox$
+$
+lol$
+================================================================================
+
+|> WITH cat < doesntexist; echo $?\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: doesntexist: No such file or directory$
+1$
+|---------------------------------------ACTUAL----------------------------------
+UNICODE ERROR: <_io.BufferedReader name=3>
+================================================================================
+
+|> WITH [SETUP echo bonjour > noperm; chmod 000 noperm] cat < noperm; echo $?\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: noperm: Permission denied$
+1$
+|---------------------------------------ACTUAL----------------------------------
+minishell: noperm: Permission denied$
+1$
+$
+lol$
+================================================================================
+
+|> WITH ; ;\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: syntax error near unexpected token `;'$
+|---------------------------------------ACTUAL----------------------------------
+minishell: syntax error near unexpected token `;;'$
+================================================================================
+
+|> WITH ; ; ;\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: syntax error near unexpected token `;'$
+|---------------------------------------ACTUAL----------------------------------
+minishell: syntax error near unexpected token `;;'$
+================================================================================
+
+|> WITH echo bonjour | | cat -e\n
+|  STATUS: expected 2 actual 0
+|---------------------------------------EXPECTED--------------------------------
+minishell: syntax error near unexpected token `|'$
+|---------------------------------------ACTUAL----------------------------------
+================================================================================
+
+|> WITH asdf | echo bonjour\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: asdf: command not found$
+bonjour$
+|---------------------------------------ACTUAL----------------------------------
+bonjour$
+minishell: asdf: command not found$
+================================================================================
+
+|> WITH Mollitia asperiores assumenda excepturi et ipsa. Nihil corporis facere aut a rem consequatur. Quas molestiae corporis et quibusdam maiores. Molestiae sed unde aut at sed. Deserunt quidem quidem aspernatur pariatur vel illum voluptatum. Culpa unde dolor aspernatur sit. Mollitia tenetur sed eaque autem placeat a aut in. Ipsam ea consequuntur omnis. Non et qui vel corrupti similique eum aut voluptatibus. Iste consequatur voluptatum et omnis debitis. Sit quia neque nihil consequatur sint. Velit libero ut aut et et rerum. Placeat cumque incidunt non repellat sunt perspiciatis ullam. Repellendus repudiandae nostrum quia quis corrupti. Rerum veniam earum cumque pariatur accusantium voluptatum omnis. Alias ut et et adipisci. Tempore omnis numquam ullam et animi et eveniet. Dolor itaque distinctio in. Magnam rerum quia est laboriosam repellat perspiciatis eos. Consequuntur quae corrupti atque. Numquam enim ut ut. Perspiciatis ut maxime et libero quo voluptas consequatur illum. Pariatur porro dolor cumque molestiae harum.  > >Mollitia asperiores assumenda excepturi et ipsa. Nihil corporis facere aut a rem consequatur. Quas molestiae corporis et quibusdam maiores. Molestiae sed unde aut at sed. Deserunt quidem quidem aspernatur pariatur vel illum voluptatum. Culpa unde dolor aspernatur sit. Mollitia tenetur sed eaque autem placeat a aut in. Ipsam ea consequuntur omnis. Non et qui vel corrupti similique eum aut voluptatibus. Iste consequatur voluptatum et omnis debitis. Sit quia neque nihil consequatur sint. Velit libero ut aut et et rerum. Placeat cumque incidunt non repellat sunt perspiciatis ullam. Repellendus repudiandae nostrum quia quis corrupti. Rerum veniam earum cumque pariatur accusantium voluptatum omnis. Alias ut et et adipisci. Tempore omnis numquam ullam et animi et eveniet. Dolor itaque distinctio in. Magnam rerum quia est laboriosam repellat perspiciatis eos. Consequuntur quae corrupti atque. Numquam enim ut ut. Perspiciatis ut maxime et libero quo voluptas consequatur illum. Pariatur porro dolor cumque molestiae harum. \n
+|  STATUS: expected 2 actual 1
+|---------------------------------------EXPECTED--------------------------------
+minishell: syntax error near unexpected token `>'$
+|---------------------------------------ACTUAL----------------------------------
+minishell: No such file or directory$
+================================================================================
+
+|> WITH Mollitia asperiores assumenda excepturi et ipsa. Nihil corporis facere aut a rem consequatur. Quas molestiae corporis et quibusdam maiores. Molestiae sed unde aut at sed. Deserunt quidem quidem aspernatur pariatur vel illum voluptatum. Culpa unde dolor aspernatur sit. Mollitia tenetur sed eaque autem placeat a aut in. Ipsam ea consequuntur omnis. Non et qui vel corrupti similique eum aut voluptatibus. Iste consequatur voluptatum et omnis debitis. Sit quia neque nihil consequatur sint. Velit libero ut aut et et rerum. Placeat cumque incidunt non repellat sunt perspiciatis ullam. Repellendus repudiandae nostrum quia quis corrupti. Rerum veniam earum cumque pariatur accusantium voluptatum omnis. Alias ut et et adipisci. Tempore omnis numquam ullam et animi et eveniet. Dolor itaque distinctio in. Magnam rerum quia est laboriosam repellat perspiciatis eos. Consequuntur quae corrupti atque. Numquam enim ut ut. Perspiciatis ut maxime et libero quo voluptas consequatur illum. Pariatur porro dolor cumque molestiae harum.  < <Mollitia asperiores assumenda excepturi et ipsa. Nihil corporis facere aut a rem consequatur. Quas molestiae corporis et quibusdam maiores. Molestiae sed unde aut at sed. Deserunt quidem quidem aspernatur pariatur vel illum voluptatum. Culpa unde dolor aspernatur sit. Mollitia tenetur sed eaque autem placeat a aut in. Ipsam ea consequuntur omnis. Non et qui vel corrupti similique eum aut voluptatibus. Iste consequatur voluptatum et omnis debitis. Sit quia neque nihil consequatur sint. Velit libero ut aut et et rerum. Placeat cumque incidunt non repellat sunt perspiciatis ullam. Repellendus repudiandae nostrum quia quis corrupti. Rerum veniam earum cumque pariatur accusantium voluptatum omnis. Alias ut et et adipisci. Tempore omnis numquam ullam et animi et eveniet. Dolor itaque distinctio in. Magnam rerum quia est laboriosam repellat perspiciatis eos. Consequuntur quae corrupti atque. Numquam enim ut ut. Perspiciatis ut maxime et libero quo voluptas consequatur illum. Pariatur porro dolor cumque molestiae harum. \n
+|  STATUS: expected 2 actual 1
+|---------------------------------------EXPECTED--------------------------------
+minishell: syntax error near unexpected token `<'$
+|---------------------------------------ACTUAL----------------------------------
+minishell: No such file or directory$
+minishell: Mollitia: No such file or directory$
+================================================================================
+
+|> WITH Mollitia asperiores assumenda excepturi et ipsa. Nihil corporis facere aut a rem consequatur. Quas molestiae corporis et quibusdam maiores. Molestiae sed unde aut at sed. Deserunt quidem quidem aspernatur pariatur vel illum voluptatum. Culpa unde dolor aspernatur sit. Mollitia tenetur sed eaque autem placeat a aut in. Ipsam ea consequuntur omnis. Non et qui vel corrupti similique eum aut voluptatibus. Iste consequatur voluptatum et omnis debitis. Sit quia neque nihil consequatur sint. Velit libero ut aut et et rerum. Placeat cumque incidunt non repellat sunt perspiciatis ullam. Repellendus repudiandae nostrum quia quis corrupti. Rerum veniam earum cumque pariatur accusantium voluptatum omnis. Alias ut et et adipisci. Tempore omnis numquam ullam et animi et eveniet. Dolor itaque distinctio in. Magnam rerum quia est laboriosam repellat perspiciatis eos. Consequuntur quae corrupti atque. Numquam enim ut ut. Perspiciatis ut maxime et libero quo voluptas consequatur illum. Pariatur porro dolor cumque molestiae harum.  | ;Mollitia asperiores assumenda excepturi et ipsa. Nihil corporis facere aut a rem consequatur. Quas molestiae corporis et quibusdam maiores. Molestiae sed unde aut at sed. Deserunt quidem quidem aspernatur pariatur vel illum voluptatum. Culpa unde dolor aspernatur sit. Mollitia tenetur sed eaque autem placeat a aut in. Ipsam ea consequuntur omnis. Non et qui vel corrupti similique eum aut voluptatibus. Iste consequatur voluptatum et omnis debitis. Sit quia neque nihil consequatur sint. Velit libero ut aut et et rerum. Placeat cumque incidunt non repellat sunt perspiciatis ullam. Repellendus repudiandae nostrum quia quis corrupti. Rerum veniam earum cumque pariatur accusantium voluptatum omnis. Alias ut et et adipisci. Tempore omnis numquam ullam et animi et eveniet. Dolor itaque distinctio in. Magnam rerum quia est laboriosam repellat perspiciatis eos. Consequuntur quae corrupti atque. Numquam enim ut ut. Perspiciatis ut maxime et libero quo voluptas consequatur illum. Pariatur porro dolor cumque molestiae harum. \n
+|  STATUS: expected 2 actual 127
+|---------------------------------------EXPECTED--------------------------------
+minishell: syntax error near unexpected token `;'$
+|---------------------------------------ACTUAL----------------------------------
+minishell: Mollitia: command not found$
+minishell: Mollitia: command not found$
+================================================================================
+
+|> WITH echo $_\n
+|---------------------------------------EXPECTED--------------------------------
+/bin/bash$
+|---------------------------------------ACTUAL----------------------------------
+$
+================================================================================
+
+|> WITH echo; echo $_\n
+|---------------------------------------EXPECTED--------------------------------
+$
+echo$
+|---------------------------------------ACTUAL----------------------------------
+$
+$
+================================================================================
+
+|> WITH env; echo $_\n
+|---------------------------------------EXPECTED--------------------------------
+TERM=xterm-256color$
+PATH=/Users/a79856/.cache/minishell_test/bin$
+PWD=/Users/a79856/.cache/minishell_test/sandbox$
+SHLVL=1$
+_=/Users/a79856/.cache/minishell_test/bin/env$
+env$
+|---------------------------------------ACTUAL----------------------------------
+PATH=/Users/a79856/.cache/minishell_test/bin$
+TERM=xterm-256color$
+SHLVL=1$
+PWD=/Users/a79856/.cache/minishell_test/sandbox$
+$
+================================================================================
+
+|> WITH export A=a; echo $_\n
+|---------------------------------------EXPECTED--------------------------------
+A$
+|---------------------------------------ACTUAL----------------------------------
+$
+================================================================================
+
+|> WITH unset A; echo $_\n
+|---------------------------------------EXPECTED--------------------------------
+A$
+|---------------------------------------ACTUAL----------------------------------
+$
+================================================================================
+
+|> WITH echo a b c d; echo $_\n
+|---------------------------------------EXPECTED--------------------------------
+a b c d$
+d$
+|---------------------------------------ACTUAL----------------------------------
+a b c d$
+$
+================================================================================
+
+|> WITH cat -e /etc/shells; echo $_\n
+|---------------------------------------EXPECTED--------------------------------
+# List of acceptable shells for chpass(1).$$
+# Ftpd will not allow users to connect who are not using$$
+# one of these shells.$$
+$$
+/bin/bash$$
+/bin/csh$$
+/bin/dash$$
+/bin/ksh$$
+/bin/sh$$
+/bin/tcsh$$
+/bin/zsh$$
+/etc/shells$
+|---------------------------------------ACTUAL----------------------------------
+# List of acceptable shells for chpass(1).$$
+# Ftpd will not allow users to connect who are not using$$
+# one of these shells.$$
+$$
+/bin/bash$$
+/bin/csh$$
+/bin/dash$$
+/bin/ksh$$
+/bin/sh$$
+/bin/tcsh$$
+/bin/zsh$$
+$
+================================================================================
+
+|> WITH echo a; echo "$_"\n
+|---------------------------------------EXPECTED--------------------------------
+a$
+a$
+|---------------------------------------ACTUAL----------------------------------
+a$
+ $
+================================================================================
+
+|> WITH echo a; echo "@$_@"\n
+|---------------------------------------EXPECTED--------------------------------
+a$
+@a@$
+|---------------------------------------ACTUAL----------------------------------
+a$
+@@$
+================================================================================
+
+|> WITH [EXPORTS SHLVL=' 1'] echo $SHLVL\n
+|---------------------------------------EXPECTED--------------------------------
+2$
+|---------------------------------------ACTUAL----------------------------------
+1$
+================================================================================
+
+|> WITH [EXPORTS SHLVL=' 2'] echo $SHLVL\n
+|---------------------------------------EXPECTED--------------------------------
+3$
+|---------------------------------------ACTUAL----------------------------------
+1$
+================================================================================
+
+|> WITH [EXPORTS SHLVL=' 3'] echo $SHLVL\n
+|---------------------------------------EXPECTED--------------------------------
+4$
+|---------------------------------------ACTUAL----------------------------------
+1$
+================================================================================
+
+|> WITH [EXPORTS SHLVL=' -1'] echo $SHLVL\n
+|---------------------------------------EXPECTED--------------------------------
+0$
+|---------------------------------------ACTUAL----------------------------------
+1$
+================================================================================
+
+|> WITH [EXPORTS SHLVL=' 255'] echo $SHLVL\n
+|---------------------------------------EXPECTED--------------------------------
+256$
+|---------------------------------------ACTUAL----------------------------------
+1$
+================================================================================
+
+|> WITH [EXPORTS SHLVL=' 256'] echo $SHLVL\n
+|---------------------------------------EXPECTED--------------------------------
+257$
+|---------------------------------------ACTUAL----------------------------------
+1$
+================================================================================
+
+|> WITH [EXPORTS SHLVL=' 2000000'] echo $SHLVL\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: warning: shell level (2000001) too high, resetting to 1$
+1$
+|---------------------------------------ACTUAL----------------------------------
+1$
+================================================================================
+
+|> WITH [EXPORTS SHLVL=' -2000000'] echo $SHLVL\n
+|---------------------------------------EXPECTED--------------------------------
+0$
+|---------------------------------------ACTUAL----------------------------------
+1$
+================================================================================
+
+|> WITH [EXPORTS SHLVL=' 2147483647'] echo $SHLVL\n
+|---------------------------------------EXPECTED--------------------------------
+0$
+|---------------------------------------ACTUAL----------------------------------
+1$
+================================================================================
+
+|> WITH [EXPORTS SHLVL=' -2147483648'] echo $SHLVL\n
+|---------------------------------------EXPECTED--------------------------------
+0$
+|---------------------------------------ACTUAL----------------------------------
+1$
+================================================================================
+
+|> WITH [EXPORTS SHLVL=' 2147483648'] echo $SHLVL\n
+|---------------------------------------EXPECTED--------------------------------
+0$
+|---------------------------------------ACTUAL----------------------------------
+1$
+================================================================================
+
+|> WITH [EXPORTS SHLVL=' -2147483649'] echo $SHLVL\n
+|---------------------------------------EXPECTED--------------------------------
+0$
+|---------------------------------------ACTUAL----------------------------------
+1$
+================================================================================
+
+|> WITH [EXPORTS SHLVL=' 3147483648'] echo $SHLVL\n
+|---------------------------------------EXPECTED--------------------------------
+0$
+|---------------------------------------ACTUAL----------------------------------
+1$
+================================================================================
+
+|> WITH [EXPORTS SHLVL=' -3147483649'] echo $SHLVL\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: warning: shell level (1147483648) too high, resetting to 1$
+1$
+|---------------------------------------ACTUAL----------------------------------
+1$
+================================================================================
+
+|> WITH [EXPORTS SHLVL=' 4294967295'] echo $SHLVL\n
+|---------------------------------------EXPECTED--------------------------------
+0$
+|---------------------------------------ACTUAL----------------------------------
+1$
+================================================================================
+
+|> WITH [EXPORTS SHLVL=' 9223372036854775807'] echo $SHLVL\n
+|---------------------------------------EXPECTED--------------------------------
+0$
+|---------------------------------------ACTUAL----------------------------------
+1$
+================================================================================
+
+|> WITH [EXPORTS SHLVL=' +1'] echo $SHLVL\n
+|---------------------------------------EXPECTED--------------------------------
+2$
+|---------------------------------------ACTUAL----------------------------------
+1$
+================================================================================
+
+|> WITH [EXPORTS SHLVL=' +2'] echo $SHLVL\n
+|---------------------------------------EXPECTED--------------------------------
+3$
+|---------------------------------------ACTUAL----------------------------------
+1$
+================================================================================
+
+|> WITH [EXPORTS SHLVL=' +3'] echo $SHLVL\n
+|---------------------------------------EXPECTED--------------------------------
+4$
+|---------------------------------------ACTUAL----------------------------------
+1$
+================================================================================
+
+|> WITH [EXPORTS SHLVL=' +255'] echo $SHLVL\n
+|---------------------------------------EXPECTED--------------------------------
+256$
+|---------------------------------------ACTUAL----------------------------------
+1$
+================================================================================
+
+|> WITH [EXPORTS SHLVL=' +256'] echo $SHLVL\n
+|---------------------------------------EXPECTED--------------------------------
+257$
+|---------------------------------------ACTUAL----------------------------------
+1$
+================================================================================
+
+|> WITH [EXPORTS SHLVL=' +2000000'] echo $SHLVL\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: warning: shell level (2000001) too high, resetting to 1$
+1$
+|---------------------------------------ACTUAL----------------------------------
+1$
+================================================================================
+
+|> WITH [EXPORTS SHLVL=' +2147483647'] echo $SHLVL\n
+|---------------------------------------EXPECTED--------------------------------
+0$
+|---------------------------------------ACTUAL----------------------------------
+1$
+================================================================================
+
+|> WITH [EXPORTS SHLVL=' 0123456789'] echo $SHLVL\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: warning: shell level (123456790) too high, resetting to 1$
+1$
+|---------------------------------------ACTUAL----------------------------------
+1$
+================================================================================
+
+|> WITH [EXPORTS SHLVL=' -0123456789'] echo $SHLVL\n
+|---------------------------------------EXPECTED--------------------------------
+0$
+|---------------------------------------ACTUAL----------------------------------
+1$
+================================================================================
+
+|> WITH [EXPORTS SHLVL=' 00000000000000000000000000000000000000000000001'] echo $SHLVL\n
+|---------------------------------------EXPECTED--------------------------------
+2$
+|---------------------------------------ACTUAL----------------------------------
+1$
+================================================================================
+
+|> WITH [EXPORTS SHLVL=' 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001'] echo $SHLVL\n
+|---------------------------------------EXPECTED--------------------------------
+2$
+|---------------------------------------ACTUAL----------------------------------
+1$
+================================================================================
+
+|> WITH [SETUP mkdir path && cp /usr/bin/which ./path/a && chmod 100 ./path/a] [EXPORTS PATH='path'] a\n
+|  STATUS: expected 1 actual 126
+|---------------------------------------EXPECTED--------------------------------
+usage: which [-as] program ...$
+|---------------------------------------ACTUAL----------------------------------
+minishell: path/a: Permission denied$
+================================================================================
+
+|> WITH [SETUP mkdir path && cp /usr/bin/which ./path/a && chmod 300 ./path/a] [EXPORTS PATH='path'] a\n
+|  STATUS: expected 1 actual 126
+|---------------------------------------EXPECTED--------------------------------
+usage: which [-as] program ...$
+|---------------------------------------ACTUAL----------------------------------
+minishell: path/a: Permission denied$
+================================================================================
+
+|> WITH [SETUP mkdir path && cp /usr/bin/which ./path/a && chmod 311 ./path/a] [EXPORTS PATH='path'] a\n
+|  STATUS: expected 1 actual 126
+|---------------------------------------EXPECTED--------------------------------
+usage: which [-as] program ...$
+|---------------------------------------ACTUAL----------------------------------
+minishell: path/a: Permission denied$
+================================================================================
+
+|> WITH [SETUP mkdir path && cp /usr/bin/which ./path/a && chmod 111 ./path/a] [EXPORTS PATH='path'] a\n
+|  STATUS: expected 1 actual 126
+|---------------------------------------EXPECTED--------------------------------
+usage: which [-as] program ...$
+|---------------------------------------ACTUAL----------------------------------
+minishell: path/a: Permission denied$
+================================================================================
+
+|> WITH [SETUP mkdir path && cp /usr/bin/which ./path/a && chmod 333 ./path/a] [EXPORTS PATH='path'] a\n
+|  STATUS: expected 1 actual 126
+|---------------------------------------EXPECTED--------------------------------
+usage: which [-as] program ...$
+|---------------------------------------ACTUAL----------------------------------
+minishell: path/a: Permission denied$
+================================================================================
+
+|> WITH [SETUP mkdir path && cp /usr/bin/which ./path/a && chmod 000 ./path/a] [EXPORTS PATH='path'] A\n
+|  STATUS: expected 126 actual 127
+|---------------------------------------EXPECTED--------------------------------
+minishell: path/A: Permission denied$
+|---------------------------------------ACTUAL----------------------------------
+minishell: A: command not found$
+================================================================================
+
+|> WITH [EXPORTS PATH='/usr/bin'] Whoami\n
+|  STATUS: expected 0 actual 127
+|---------------------------------------EXPECTED--------------------------------
+uid=501(a79856) gid=20(staff) groups=20(staff),12(everyone),61(localaccounts),79(_appserverusr),80(admin),81(_appserveradm),98(_lpadmin),399(com.apple.access_ssh-disabled),33(_appstore),100(_lpoperator),204(_developer),250(_analyticsusers),395(com.apple.access_ftp),101(com.apple.access_screensharing-disabled),400(com.apple.access_remote_ae)$
+|---------------------------------------ACTUAL----------------------------------
+minishell: Whoami: command not found$
+================================================================================
+
+|> WITH [EXPORTS PATH='/usr/bin'] wHoAMi\n
+|  STATUS: expected 0 actual 127
+|---------------------------------------EXPECTED--------------------------------
+uid=501(a79856) gid=20(staff) groups=20(staff),12(everyone),61(localaccounts),79(_appserverusr),80(admin),81(_appserveradm),98(_lpadmin),399(com.apple.access_ssh-disabled),33(_appstore),100(_lpoperator),204(_developer),250(_analyticsusers),395(com.apple.access_ftp),101(com.apple.access_screensharing-disabled),400(com.apple.access_remote_ae)$
+|---------------------------------------ACTUAL----------------------------------
+minishell: wHoAMi: command not found$
+================================================================================
+
+|> WITH [EXPORTS PATH='/usr/bIn'] Whoami\n
+|  STATUS: expected 0 actual 127
+|---------------------------------------EXPECTED--------------------------------
+uid=501(a79856) gid=20(staff) groups=20(staff),12(everyone),61(localaccounts),79(_appserverusr),80(admin),81(_appserveradm),98(_lpadmin),399(com.apple.access_ssh-disabled),33(_appstore),100(_lpoperator),204(_developer),250(_analyticsusers),395(com.apple.access_ftp),101(com.apple.access_screensharing-disabled),400(com.apple.access_remote_ae)$
+|---------------------------------------ACTUAL----------------------------------
+minishell: Whoami: command not found$
+================================================================================
+
+|> WITH [EXPORTS PATH='/Usr/bin'] wHoami\n
+|  STATUS: expected 0 actual 127
+|---------------------------------------EXPECTED--------------------------------
+uid=501(a79856) gid=20(staff) groups=20(staff),12(everyone),61(localaccounts),79(_appserverusr),80(admin),81(_appserveradm),98(_lpadmin),399(com.apple.access_ssh-disabled),33(_appstore),100(_lpoperator),204(_developer),250(_analyticsusers),395(com.apple.access_ftp),101(com.apple.access_screensharing-disabled),400(com.apple.access_remote_ae)$
+|---------------------------------------ACTUAL----------------------------------
+minishell: wHoami: command not found$
+================================================================================
+
+|> WITH echo charles\ \n
+|---------------------------------------EXPECTED--------------------------------
+charles $
+|---------------------------------------ACTUAL----------------------------------
+charles! $
+================================================================================
+
+|> WITH echo \ \ jesuis\ \ charles\n
+|---------------------------------------EXPECTED--------------------------------
+  jesuis  charles$
+|---------------------------------------ACTUAL----------------------------------
+! ! jesuis! ! charles$
+================================================================================
+
+|> WITH echo \ \ jesuis\; \ charles\n
+|---------------------------------------EXPECTED--------------------------------
+  jesuis;  charles$
+|---------------------------------------ACTUAL----------------------------------
+! ! jesuis; ! charles$
+================================================================================
+
+|> WITH echo \ \ jesuis\&\& \ charles\n
+|---------------------------------------EXPECTED--------------------------------
+  jesuis&&  charles$
+|---------------------------------------ACTUAL----------------------------------
+! ! jesuis&& ! charles$
+================================================================================
+
+|> WITH echo \ \ jesuis\|\| \ charles\n
+|---------------------------------------EXPECTED--------------------------------
+  jesuis||  charles$
+|---------------------------------------ACTUAL----------------------------------
+! ! jesuis|| ! charles$
+================================================================================
+
+|> WITH echo \ \ jesuis \|\| \ charles\n
+|---------------------------------------EXPECTED--------------------------------
+  jesuis ||  charles$
+|---------------------------------------ACTUAL----------------------------------
+! ! jesuis || ! charles$
+================================================================================
+
+|> WITH echo \ \ jesuis\; \ charles\n
+|---------------------------------------EXPECTED--------------------------------
+  jesuis;  charles$
+|---------------------------------------ACTUAL----------------------------------
+! ! jesuis; ! charles$
+================================================================================
+
+|> WITH echo \ \ \ \ \ \ \ \ \n
+|---------------------------------------EXPECTED--------------------------------
+        $
+|---------------------------------------ACTUAL----------------------------------
+! ! ! ! ! ! ! ! $
+================================================================================
+
+|> WITH echo \ \ \ \ \ \ \ \               \ \ \ \ \ \ \n
+|---------------------------------------EXPECTED--------------------------------
+               $
+|---------------------------------------ACTUAL----------------------------------
+! ! ! ! ! ! ! !  ! ! ! ! ! ! $
+================================================================================
+
+|> WITH echo\ bonjour\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: echo bonjour: command not found$
+|---------------------------------------ACTUAL----------------------------------
+minishell: echo! bonjour: command not found$
+================================================================================
+
+|> WITH \ echo bonjour\n
+|---------------------------------------EXPECTED--------------------------------
+minishell:  echo: command not found$
+|---------------------------------------ACTUAL----------------------------------
+minishell: ! echo: command not found$
+================================================================================
+
+|> WITH  \ echo bonjour\n
+|---------------------------------------EXPECTED--------------------------------
+minishell:  echo: command not found$
+|---------------------------------------ACTUAL----------------------------------
+minishell: ! echo: command not found$
+================================================================================
+
+|> WITH                  \ echo bonjour\n
+|---------------------------------------EXPECTED--------------------------------
+minishell:  echo: command not found$
+|---------------------------------------ACTUAL----------------------------------
+minishell: ! echo: command not found$
+================================================================================
+
+|> WITH  \                 echo bonjour\n
+|---------------------------------------EXPECTED--------------------------------
+minishell:  : command not found$
+|---------------------------------------ACTUAL----------------------------------
+minishell: ! : command not found$
+================================================================================
+
+|> WITH                  \                    echo bonjour\n
+|---------------------------------------EXPECTED--------------------------------
+minishell:  : command not found$
+|---------------------------------------ACTUAL----------------------------------
+minishell: ! : command not found$
+================================================================================
+
+|> WITH [EXPORTS A='foo' B='bar' C='baz'] echo $A$B$C\n
+|---------------------------------------EXPECTED--------------------------------
+foobarbaz$
+|---------------------------------------ACTUAL----------------------------------
+fooBbaz$
+================================================================================
+
+|> WITH [EXPORTS A='foo' B='bar' C='baz'] echo "$A$B$C"\n
+|---------------------------------------EXPECTED--------------------------------
+foobarbaz$
+|---------------------------------------ACTUAL----------------------------------
+foo$Bbaz$
+================================================================================
+
+|> WITH [EXPORTS A='foo' B='bar' C='baz'] echo $A,$B,$C\n
+|---------------------------------------EXPECTED--------------------------------
+foo,bar,baz$
+|---------------------------------------ACTUAL----------------------------------
+foobarbaz$
+================================================================================
+
+|> WITH [EXPORTS A='foo' B='bar' C='baz'] echo $A'$B'$C'A'$B'$C'\n
+|---------------------------------------EXPECTED--------------------------------
+foo$BbazAbar$C$
+|---------------------------------------ACTUAL----------------------------------
+foobarbazA$Bbaz$
+================================================================================
+
+|> WITH [EXPORTS A='foo ' B=' bar  ' C='baz '] echo $A"$B"$C"A"$B"$C"\n
+|---------------------------------------EXPECTED--------------------------------
+foo  bar  baz A bar baz $
+|---------------------------------------ACTUAL----------------------------------
+foo  bar  baz A bar  baz $
+================================================================================
+
+|> WITH [EXPORTS A='foo ' B=' bar  ' C='baz '] echo $A'$B'$C'A'$B'$C'\n
+|---------------------------------------EXPECTED--------------------------------
+foo $Bbaz A bar $C$
+|---------------------------------------ACTUAL----------------------------------
+foo bar baz A$Bbaz$
+================================================================================
+
+|> WITH echo $A$B\n
+|---------------------------------------EXPECTED--------------------------------
+$
+|---------------------------------------ACTUAL----------------------------------
+B$
+================================================================================
+
+|> WITH echo $A$B$C\n
+|---------------------------------------EXPECTED--------------------------------
+$
+|---------------------------------------ACTUAL----------------------------------
+B$
+================================================================================
+
+|> WITH echo $A$B$C$D\n
+|---------------------------------------EXPECTED--------------------------------
+$
+|---------------------------------------ACTUAL----------------------------------
+BD$
+================================================================================
+
+|> WITH [EXPORTS A='bonjour\je'] echo [$A]\n
+|---------------------------------------EXPECTED--------------------------------
+[bonjour\je]$
+|---------------------------------------ACTUAL----------------------------------
+[bonjour\je$
+================================================================================
+
+|> WITH [EXPORTS A='\b\\o\\\nj\\\\\\\our\\je\\\\'] echo [$A]\n
+|---------------------------------------EXPECTED--------------------------------
+[\b\\o\\\nj\\\\\\\our\\je\\\\]$
+|---------------------------------------ACTUAL----------------------------------
+[\b\\o\\\nj\\\\\\\our\\je\\\\$
+================================================================================
+
+|> WITH [EXPORTS A='   \b\\o\\\nj\\\\\\\our\\je\\\\'] echo [$A]\n
+|---------------------------------------EXPECTED--------------------------------
+[ \b\\o\\\nj\\\\\\\our\\je\\\\]$
+|---------------------------------------ACTUAL----------------------------------
+[ \b\\o\\\nj\\\\\\\our\\je\\\\$
+================================================================================
+
+|> WITH [EXPORTS A='\b\\o\\\nj\\\\\\\our\\je\\\\   '] echo [$A]\n
+|---------------------------------------EXPECTED--------------------------------
+[\b\\o\\\nj\\\\\\\our\\je\\\\ ]$
+|---------------------------------------ACTUAL----------------------------------
+[\b\\o\\\nj\\\\\\\our\\je\\\\$
+================================================================================
+
+|> WITH [EXPORTS A='  \b\\o\\\nj\\\\\\\our\\je\\\\ '] echo [$A]\n
+|---------------------------------------EXPECTED--------------------------------
+[ \b\\o\\\nj\\\\\\\our\\je\\\\ ]$
+|---------------------------------------ACTUAL----------------------------------
+[ \b\\o\\\nj\\\\\\\our\\je\\\\$
+================================================================================
+
+|> WITH [EXPORTS A='a  \b\\o\\\nj\\\\\\\our\\je\\\\ b'] echo [$A]\n
+|---------------------------------------EXPECTED--------------------------------
+[a \b\\o\\\nj\\\\\\\our\\je\\\\ b]$
+|---------------------------------------ACTUAL----------------------------------
+[a \b\\o\\\nj\\\\\\\our\\je\\\\ b$
+================================================================================
+
+|> WITH [EXPORTS A=' a  \b\\o\\\nj\\\\\\\our\\je\\\\ b '] echo [$A]\n
+|---------------------------------------EXPECTED--------------------------------
+[ a \b\\o\\\nj\\\\\\\our\\je\\\\ b ]$
+|---------------------------------------ACTUAL----------------------------------
+[ a \b\\o\\\nj\\\\\\\our\\je\\\\ b$
+================================================================================
+
+|> WITH [EXPORTS A=' '] echo [$A]\n
+|---------------------------------------EXPECTED--------------------------------
+[ ]$
+|---------------------------------------ACTUAL----------------------------------
+[$
+================================================================================
+
+|> WITH [EXPORTS A='    '] echo [$A]\n
+|---------------------------------------EXPECTED--------------------------------
+[ ]$
+|---------------------------------------ACTUAL----------------------------------
+[$
+================================================================================
+
+|> WITH [EXPORTS A='\ '] echo [$A]\n
+|---------------------------------------EXPECTED--------------------------------
+[\ ]$
+|---------------------------------------ACTUAL----------------------------------
+[\$
+================================================================================
+
+|> WITH [EXPORTS A=' \  '] echo [$A]\n
+|---------------------------------------EXPECTED--------------------------------
+[ \ ]$
+|---------------------------------------ACTUAL----------------------------------
+[ \$
+================================================================================
+
+|> WITH [EXPORTS A='bonjour'] echo \ \ \ \ \ \ \ $A\ \ \ \ \ \ \n
+|---------------------------------------EXPECTED--------------------------------
+       bonjour      $
+|---------------------------------------ACTUAL----------------------------------
+bonjour ! ! ! ! ! $
+================================================================================
+
+|> WITH [EXPORTS A='bonjour je suis'] echo \ \ \ \ \ \ \ $A\ \ \ \ \ \ \n
+|---------------------------------------EXPECTED--------------------------------
+       bonjour je suis      $
+|---------------------------------------ACTUAL----------------------------------
+bonjour je suis ! ! ! ! ! $
+================================================================================
+
+|> WITH [EXPORTS A='  bonjour je suis  '] echo \ \ \ \ \ \ \ $A\ \ \ \ \ \ \n
+|---------------------------------------EXPECTED--------------------------------
+        bonjour je suis       $
+|---------------------------------------ACTUAL----------------------------------
+bonjour je suis ! ! ! ! ! $
+================================================================================
+
+|> WITH [EXPORTS A='bonjour je suis splited'] echo [$A]\n
+|---------------------------------------EXPECTED--------------------------------
+[bonjour je suis splited]$
+|---------------------------------------ACTUAL----------------------------------
+[bonjour je suis splited$
+================================================================================
+
+|> WITH [EXPORTS A='bonjour     je     suis    splited'] echo [$A]\n
+|---------------------------------------EXPECTED--------------------------------
+[bonjour je suis splited]$
+|---------------------------------------ACTUAL----------------------------------
+[bonjour je suis splited$
+================================================================================
+
+|> WITH [EXPORTS A='   bonjour     je     suis    splited   '] echo [$A]\n
+|---------------------------------------EXPECTED--------------------------------
+[ bonjour je suis splited ]$
+|---------------------------------------ACTUAL----------------------------------
+[ bonjour je suis splited$
+================================================================================
+
+|> WITH [EXPORTS A='bonjour je suis splited'] echo \ $A\n
+|---------------------------------------EXPECTED--------------------------------
+ bonjour je suis splited$
+|---------------------------------------ACTUAL----------------------------------
+bonjour je suis splited$
+================================================================================
+
+|> WITH [EXPORTS A='bonjour     je     suis    splited'] echo \ $A\n
+|---------------------------------------EXPECTED--------------------------------
+ bonjour je suis splited$
+|---------------------------------------ACTUAL----------------------------------
+bonjour je suis splited$
+================================================================================
+
+|> WITH [EXPORTS A='   bonjour     je     suis    splited   '] echo \ $A\n
+|---------------------------------------EXPECTED--------------------------------
+  bonjour je suis splited$
+|---------------------------------------ACTUAL----------------------------------
+bonjour je suis splited$
+================================================================================
+
+|> WITH [EXPORTS A='bonjour je suis splited'] echo $A\ \n
+|---------------------------------------EXPECTED--------------------------------
+bonjour je suis splited $
+|---------------------------------------ACTUAL----------------------------------
+bonjour je suis splited$
+================================================================================
+
+|> WITH [EXPORTS A='bonjour     je     suis    splited'] echo $A\ \n
+|---------------------------------------EXPECTED--------------------------------
+bonjour je suis splited $
+|---------------------------------------ACTUAL----------------------------------
+bonjour je suis splited$
+================================================================================
+
+|> WITH [EXPORTS A='   bonjour     je     suis    splited   '] echo $A\ \n
+|---------------------------------------EXPECTED--------------------------------
+bonjour je suis splited  $
+|---------------------------------------ACTUAL----------------------------------
+bonjour je suis splited$
+================================================================================
+
+|> WITH [EXPORTS A='   bonjour     je     suis    splited   '] echo $A$A$A\n
+|---------------------------------------EXPECTED--------------------------------
+bonjour je suis splited bonjour je suis splited bonjour je suis splited$
+|---------------------------------------ACTUAL----------------------------------
+bonjour je suis splited A bonjour je suis splited$
+================================================================================
+
+|> WITH [EXPORTS ECHO='echo'] $ECHO $ECHO\n
+|  STATUS: expected 0 actual 127
+|---------------------------------------EXPECTED--------------------------------
+echo$
+|---------------------------------------ACTUAL----------------------------------
+minishell: echoecho: command not found$
+================================================================================
+
+|> WITH [EXPORTS A='ec' B='ho'] $A$B bonjour\n
+|  STATUS: expected 0 actual 127
+|---------------------------------------EXPECTED--------------------------------
+bonjour$
+|---------------------------------------ACTUAL----------------------------------
+minishell: ecB: command not found$
+================================================================================
+
+|> WITH echo $\n
+|---------------------------------------EXPECTED--------------------------------
+$$
+|---------------------------------------ACTUAL----------------------------------
+$
+================================================================================
+
+|> WITH echo \$$\$$\n
+|---------------------------------------EXPECTED--------------------------------
+$$$$$
+|---------------------------------------ACTUAL----------------------------------
+$$\$$$
+================================================================================
+
+|> WITH [EXPORTS A='a' B='b'] echo $\A $\B\n
+|---------------------------------------EXPECTED--------------------------------
+$A $B$
+|---------------------------------------ACTUAL----------------------------------
+$\A $\B$
+================================================================================
+
+|> WITH [EXPORTS A='a' B='b'] echo $\A$\B\n
+|---------------------------------------EXPECTED--------------------------------
+$A$B$
+|---------------------------------------ACTUAL----------------------------------
+$\A$\B$
+================================================================================
+
+|> WITH [EXPORTS A=' '] echo @$A@\n
+|---------------------------------------EXPECTED--------------------------------
+@ @$
+|---------------------------------------ACTUAL----------------------------------
+@$
+================================================================================
+
+|> WITH [EXPORTS A=' '] echo @ $A@\n
+|---------------------------------------EXPECTED--------------------------------
+@ @$
+|---------------------------------------ACTUAL----------------------------------
+@ $
+================================================================================
+
+|> WITH [EXPORTS A='       '] echo @$A@\n
+|---------------------------------------EXPECTED--------------------------------
+@ @$
+|---------------------------------------ACTUAL----------------------------------
+@$
+================================================================================
+
+|> WITH [EXPORTS A='' B='' C=''] echo $A$B$C\n
+|---------------------------------------EXPECTED--------------------------------
+$
+|---------------------------------------ACTUAL----------------------------------
+B$
+================================================================================
+
+|> WITH [EXPORTS A='file'] echo bonjour > $A\n
+|# FILE file
+|---------------------------------------EXPECTED--------------------------------
+bonjour$
+|---------------------------------------ACTUAL----------------------------------
+FROM TEST: File not created
+================================================================================
+
+|> WITH [EXPORTS A='fi le'] echo bonjour > $A\n
+|  STATUS: expected 1 actual 0
+|---------------------------------------EXPECTED--------------------------------
+minishell: $A: ambiguous redirect$
+|---------------------------------------ACTUAL----------------------------------
+================================================================================
+
+|> WITH [EXPORTS A='fi le'] echo bonjour > "$A"\n
+|# FILE fi le
+|---------------------------------------EXPECTED--------------------------------
+bonjour$
+|---------------------------------------ACTUAL----------------------------------
+FROM TEST: File not created
+================================================================================
+
+|> WITH ''echo bonjour\n
+|---------------------------------------EXPECTED--------------------------------
+bonjour$
+|---------------------------------------ACTUAL----------------------------------
+================================================================================
+
+|> WITH ""echo bonjour\n
+|---------------------------------------EXPECTED--------------------------------
+bonjour$
+|---------------------------------------ACTUAL----------------------------------
+================================================================================
+
+|> WITH ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''echo bonjour\n
+|---------------------------------------EXPECTED--------------------------------
+bonjour$
+|---------------------------------------ACTUAL----------------------------------
+================================================================================
+
+|> WITH """"""""""""""""""""""""""""""""""""""""""""""""""""""""""echo bonjour\n
+|---------------------------------------EXPECTED--------------------------------
+bonjour$
+|---------------------------------------ACTUAL----------------------------------
+================================================================================
+
+|> WITH '''''''e''''''''''c''''''''''''h''''''''o''''''''''''''''''''' bonjour\n
+|---------------------------------------EXPECTED--------------------------------
+bonjour$
+|---------------------------------------ACTUAL----------------------------------
+================================================================================
+
+|> WITH echo '\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: unexpected EOF while looking for matching `''$
+|---------------------------------------ACTUAL----------------------------------
+minishell: syntax error: unexpected end of file$
+================================================================================
+
+|> WITH echo "\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: unexpected EOF while looking for matching `"'$
+|---------------------------------------ACTUAL----------------------------------
+minishell: syntax error: unexpected end of file$
+================================================================================
+
+|> WITH echo '''\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: unexpected EOF while looking for matching `''$
+|---------------------------------------ACTUAL----------------------------------
+minishell: syntax error: unexpected end of file$
+================================================================================
+
+|> WITH echo """\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: unexpected EOF while looking for matching `"'$
+|---------------------------------------ACTUAL----------------------------------
+minishell: syntax error: unexpected end of file$
+================================================================================
+
+|> WITH echo '''''''''''''''''''''''''''''''''''''''''''\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: unexpected EOF while looking for matching `''$
+|---------------------------------------ACTUAL----------------------------------
+minishell: syntax error: unexpected end of file$
+================================================================================
+
+|> WITH echo """""""""""""""""""""""""""""""""""""""""""\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: unexpected EOF while looking for matching `"'$
+|---------------------------------------ACTUAL----------------------------------
+minishell: syntax error: unexpected end of file$
+================================================================================
+
+|> WITH echo 'AH\'\n
+|  STATUS: expected 0 actual 2
+|---------------------------------------EXPECTED--------------------------------
+AH\$
+|---------------------------------------ACTUAL----------------------------------
+minishell: syntax error: unexpected end of file$
+================================================================================
+
+|> WITH echo "AH\"\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: unexpected EOF while looking for matching `"'$
+|---------------------------------------ACTUAL----------------------------------
+minishell: syntax error: unexpected end of file$
+================================================================================
+
+|> WITH echo '\''\n
+|  STATUS: expected 2 actual 0
+|---------------------------------------EXPECTED--------------------------------
+minishell: unexpected EOF while looking for matching `''$
+|---------------------------------------ACTUAL----------------------------------
+\$
+================================================================================
+
+|> WITH echo "\\""\n
+|---------------------------------------EXPECTED--------------------------------
+minishell: unexpected EOF while looking for matching `"'$
+|---------------------------------------ACTUAL----------------------------------
+minishell: syntax error: unexpected end of file$
+================================================================================
+

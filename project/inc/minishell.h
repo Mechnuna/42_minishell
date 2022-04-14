@@ -6,7 +6,7 @@
 /*   By: a79856 <a79856@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 19:45:11 by hashly            #+#    #+#             */
-/*   Updated: 2022/04/08 22:26:58 by a79856           ###   ########.fr       */
+/*   Updated: 2022/04/14 21:24:22 by a79856           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@
 # define PIPE_ON_THE_RIGHT 5
 # define PIPE_BOTH_SIDES 6
 # define SEMICOLON_CODE 7
+# define MAX_FD 1024
 
 # define BR_LEFT			"\001\002(\003\023"
 # define BR_RIGHT			"\001\002)\003\023"
@@ -128,7 +129,7 @@ typedef struct s_content
 //minishell.c
 
 //envp.c
-char	***ft_copy_env(char **env, char ***argv);
+char	***ft_copy_env(char **env);
 int		ft_free_envp(char ****env);
 int		ft_set_ret(int value, char *msg, char **env);
 char	*ft_getenv(char *name, char **env);
@@ -137,7 +138,7 @@ char	*ft_get_status(char **env);
 void	sig_d(int signo);
 void	set_signal(void);
 //parsing.c
-char	**parsing(char ***env);
+char	**parsing(char ***env, char *cmd ,char mode_work);
 //output.c
 char	*get_promt(char **env);
 char	*ft_getenv(char *name, char **env);
