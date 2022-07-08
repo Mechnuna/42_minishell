@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   built_in_1.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hashly <hashly@student.21-school.ru>       +#+  +:+       +#+        */
+/*   By: a79856 <a79856@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 18:27:13 by hashly            #+#    #+#             */
-/*   Updated: 2022/04/11 19:47:26 by hashly           ###   ########.fr       */
+/*   Updated: 2022/07/08 04:05:34 by a79856           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int	ft_cd(char **argv, char ***env)
 	if (ft_get_path(&path, argv, *env))
 		return (1);
 	old_pwd = ft_strjoin("OLDPWD=", ft_getenv("PWD", *env));
-	if (chdir(path) == 0)
+	if (chdir(path) == 0 || ft_strncmp(argv[0], "", 1) == 0)
 	{
 		change_old_pwd_and_pwd(env, old_pwd);
 		free(old_pwd);

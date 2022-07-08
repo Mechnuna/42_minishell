@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   output.c                                           :+:      :+:    :+:   */
+/*   output_1.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hashly <hashly@student.21-school.ru>       +#+  +:+       +#+        */
+/*   By: a79856 <a79856@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 15:05:59 by hashly            #+#    #+#             */
-/*   Updated: 2022/04/10 17:57:36 by hashly           ###   ########.fr       */
+/*   Updated: 2022/07/08 04:07:15 by a79856           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	output_error(int status, t_node *node)
 	{
 		ft_putstr_fd(PROGRAM_NAME": ", STD_ERR);
 		ft_putstr_fd(node->data->cmd, STD_ERR);
-		exit(ft_set_ret(126, ": Is a directory\n", *node->env));
+		exit(ft_set_ret(126, ": is a directory\n", *node->env));
 	}
 }
 

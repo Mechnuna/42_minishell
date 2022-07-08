@@ -6,7 +6,7 @@
 /*   By: a79856 <a79856@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 19:45:11 by hashly            #+#    #+#             */
-/*   Updated: 2022/04/14 21:24:22 by a79856           ###   ########.fr       */
+/*   Updated: 2022/07/08 04:09:52 by a79856           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include "./color.h"
 //for parsing
 # include "./parser.h"
+# include "./parsers.h"
 //for getcwd, chdir
 # include <unistd.h>
 //for signal
@@ -84,8 +85,6 @@
 # ifdef __APPLE__ //debug
 	void	rl_replace_line();
 # endif
-
-
 typedef struct s_data
 {
 	char	*cmd;
@@ -101,6 +100,7 @@ typedef struct s_list_redir
 	int		type_redir;
 	char	*word;
 	int		fd;
+	int		pipe_heredoc[2];
 }	t_list_redir;
 
 typedef struct s_node
@@ -116,6 +116,7 @@ typedef struct s_node
 	int				pipe[2];
 	t_list			*list_redir;
 	char			***env;
+	char			mode;
 }	t_node;
 
 
@@ -143,6 +144,7 @@ char	**parsing(char ***env, char *cmd ,char mode_work);
 char	*get_promt(char **env);
 char	*ft_getenv(char *name, char **env);
 void	output_error(int status, t_node *node);
+void	err_1(t_list_redir **content, t_node *node, char ***arr, char **word);
 //built_in_1.c
 int		ft_echo(char **argv, char ***env);
 int		ft_cd(char **argv, char ***env);
@@ -151,18 +153,20 @@ int		ft_env(char **argv, char ***env);
 int		ft_export(char **argv, char ****env);
 //built_in_3.c
 int		ft_unset(char **argv, char ****env);
-void	ft_parsing_argv_2(char **argv, char ***key, char ***value, char **env);
+void	processing_valid_shlvl(char **value);
 //built_in_4.c
 int		ft_pwd(char **argv, char ***env);
-int		ft_exit(char **argv, char ***env, char *exit);
+int		ft_exit(char **argv, char ***env, char *exit, char mode);
+//built_in_5.c
+void	ft_parsing_argv_2(char **argv, char ***key, char ***value, char **env);
 //forest_1.c
-t_node	*create_empty_node(char ***env);
-t_node	*create_node_next_lvl(t_node *node, char ***env);
+t_node	*create_empty_node(char ***env, char mode);
+t_node	*create_node_next_lvl(t_node *node, char ***env, char mode);
 t_node	*go_prev_lvl(t_node *node);
-t_node	*create_next_node(t_node *node, char separator, char ***env);
+t_node	*create_next_node(t_node *node, char separator, char ***env, char m);
 //forest_2.c
 void	ft_add_argv(t_node *node, char *str);
-t_node	*get_forest(char **line, char ***env);
+t_node	*get_forest(char **line, char ***env, char mode, int i);
 //execute_1.c
 void	execute_level(t_node *node);
 //execute_2.c
@@ -170,9 +174,13 @@ void	open_path_and_check_access(t_node *node);
 //execute_3.c
 void	error_handling(int mode, t_node *node, char **path);
 void	execute_cmd_in_node(t_node *node);
+//execute_4.c
+void	delete_spase_define2(t_node *node);
+void	delete_spase_define(t_node *node);
 //free.c
 void	free_node(t_node *node);
 void	free_forest(t_node *temp, char ****env);
+void	free_node_list_redir(void *ptr);
 //condition.c
 int		cond_status(t_node	*node);
 int		cond_is_built_in(t_node *node);
@@ -182,6 +190,7 @@ int		cmd_in_path(t_node *node);
 char	str_is_redirect(char **str, int i);
 //set_redir.c
 void	ft_set_redir(t_node *node);
+void	sig_int_heredoc(int signo);
 //processing_redir.c
 void	ft_close_redir(t_node *node);
 //set_pipe.c
@@ -192,6 +201,7 @@ void	close_default_fd(t_node *node);
 int		pipilene_is_over(t_list **pipeline);
 void	processing_pipe_in_child(t_node *node);
 //predparsing_1.c
+char	*get_end_str(char *str, t_node *node);
 void	preparsing(t_node *node);
 //preparsing_2.c
 int		check_error_in_env_name(char *name, char *flag);
@@ -199,5 +209,13 @@ void	replace_data_in_node(char ***arr, t_node *node);
 char	**split_cmd_line(char **end_str);
 //preparsing_3.c
 char	**open_star(t_node *node);
+//preparsing_4.c
+void	get_ret_no_ret(char **split_end, char **ret, t_node *node, int *x);
+void	get_ret_yes_ret(char **split_end, char **ret, t_node *node, int *x);
+char	matching(char **split_arr, char *d_name);
+//heredoc.c
+void	proc_heredoc(t_node *node, t_list_redir *content, char *name_file);
+//shlvl.c
+void	up_shlvl(char ***env);
 
 #endif

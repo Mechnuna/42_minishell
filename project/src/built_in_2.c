@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   built_in_2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hashly <hashly@student.21-school.ru>       +#+  +:+       +#+        */
+/*   By: a79856 <a79856@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 01:30:04 by hashly            #+#    #+#             */
-/*   Updated: 2022/04/10 00:12:42 by hashly           ###   ########.fr       */
+/*   Updated: 2022/07/08 04:05:57 by a79856           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,16 +161,12 @@ int	ft_export(char **argv, char ****env)
 			return (0);
 		i = 0;
 		while (key[i++])
-			export_action(key[i - 1], value[i - 1], *env);
-		i = 0;
-		while (key[i])
 		{
-			free(key[i++]);
-			if (value[i - 1])
-				free(value[i - 1]);
+			if (ft_strncmp("SHLVL", key[i - 1], 6) == 0)
+				processing_valid_shlvl(&(value[i - 1]));
+			export_action(key[i - 1], value[i - 1], *env);
 		}
-		free(key);
-		free(value);
+		free_arr_export(&key, &value);
 	}
 	return (ft_set_ret(0, NULL, **env));
 }
