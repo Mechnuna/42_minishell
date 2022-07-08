@@ -6,7 +6,7 @@
 /*   By: a79856 <a79856@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 19:10:33 by hashly            #+#    #+#             */
-/*   Updated: 2022/04/14 16:24:30 by a79856           ###   ########.fr       */
+/*   Updated: 2022/07/08 04:09:35 by a79856           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,40 +56,8 @@ void	replace_data_in_node(char ***arr, t_node *node)
 		ft_add_argv(node, temp[i]);
 		i++;
 	}
+	ft_free_str_of_str(arr);
 }
-
-/*
-Masha
-Функция должна разделить строку по правилам разделения bash,
-затем очитстить указатель end_str и вернуть ret
-if end_str из одних пробелов, то все ок
-*/
-
-// char	*ft_queote_dollar(char *str, char *new_str)
-// {
-// 	char	*tmp;
-// 	char	*tmp2;
-// 	char	*finish;
-// 	int		a;
-// 	int		b;
-// 	int		i;
-
-// 	i = 0;
-// 	tmp = NULL;
-// 	a = ft_strlen(str);
-// 	b = ft_strlen(new_str);
-// 	tmp = ft_substr(str, 0, a - b);
-// 	finish = ft_strnstr(new_str, END_DOUBLE_QUOTE, ft_strlen(new_str));
-// 	c = ft_strlen(finish);
-// 	if (finish != NULL)
-// 		tmp2 = ft_substr(new_str, 5, b - ft_strlen(finish) - 5);
-// 	tmp = ft_strjoin_free_all(tmp, tmp2);
-// 	tmp = ft_strjoin_free_s1(tmp, finish + 5);
-// 	// free(new_str);
-// 	free(str);
-// 	// free(finish);
-// 	return (tmp);
-// }
 
 char	*ft_queote_dollar(char *str, char *new_str, int i)
 {
@@ -105,16 +73,9 @@ char	*ft_queote_dollar(char *str, char *new_str, int i)
 	return (tmp);
 }
 
-char	**split_cmd_line(char **end_str)
+static void	split_cmd_line_2(char **end_str, int *end)
 {
-	char	**ret;
 	char	*new_str;
-	int		i;
-	int		end;
-
-	i = 0;
-	end = 0;
-	ret = NULL;
 	new_str = ft_strnstr(*end_str, START_DOUBLE_QUOTE, ft_strlen(*end_str));
 	// printf("\nstr-%s\n",*end_str);
 	while (new_str != NULL)
@@ -127,13 +88,24 @@ char	**split_cmd_line(char **end_str)
 	{
 		*end_str = ft_queote_dollar(*end_str, new_str, 1);
 		new_str = ft_strnstr(*end_str, END_DOUBLE_QUOTE, ft_strlen(*end_str));
-		end = 1;
+		*end = 1;
 	}
+}
+
+char	**split_cmd_line(char **end_str)
+{
+	char	**ret;
+	int		i;
+	int		end;
+
+	i = 0;
+	ret = NULL;
+	end = 0;
+	split_cmd_line_2(end_str, &end);
 	if (end == 1)
 	{
-		// new = ft_strjoin_free_all(left, right);
 		ret = ft_add_line(ret, *end_str);
-		// free(*end_str);
+		free(*end_str);
 		return (ret);
 	}
 	else {
@@ -141,7 +113,7 @@ char	**split_cmd_line(char **end_str)
 	}
 	while (*end_str[i] == '\t' || *end_str[i] == '\n' || *end_str[i] == '\v' \
 		|| *end_str[i] == '\f' || *end_str[i] == '\r' || *end_str[i] == ' ')
-	 	i++;
+		i++;
 	if ((*end_str)[i] == 0)
 		ret = ft_add_line(ret, "");
 	else

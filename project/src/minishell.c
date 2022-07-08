@@ -6,17 +6,17 @@
 /*   By: a79856 <a79856@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 19:45:08 by hashly            #+#    #+#             */
-/*   Updated: 2022/04/14 23:54:06 by a79856           ###   ########.fr       */
+/*   Updated: 2022/07/08 04:07:09 by a79856           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/minishell.h"
 
-static void	ft_check_status_exit(char status_exit, char ****env, char *mode_work)
+static void	ft_check_status_exit(char status_exit, char ****env, char *mode)
 {
-	if (*mode_work)
-		(*mode_work)++;
-	if (status_exit || *mode_work == 3)
+	if (*mode)
+		(*mode)++;
+	if (status_exit || *mode == 3)
 	{
 		status_exit = (char)(ft_atoi(ft_get_status(**env)));
 		ft_free_envp(env);
@@ -26,7 +26,6 @@ static void	ft_check_status_exit(char status_exit, char ****env, char *mode_work
 		#endif
 		#elif __linux__
 		rl_clear_history();
-		#endif
 		exit(status_exit);
 	}
 }
@@ -46,7 +45,7 @@ static char	processing_argc(int argc, char **argv)
 	return (0);
 }
 
-static void	add_pwd_shlvl_mode_c(char ****env, char	mode_work)
+static void	add_pwd_shlvl_mode_c(char ****env, char mode_work)
 {
 	char	**arg;
 	char	*temp;
@@ -54,9 +53,7 @@ static void	add_pwd_shlvl_mode_c(char ****env, char	mode_work)
 	arg = NULL;
 	if (mode_work)
 	{
-		temp = ft_strdup("SHLVL=1");
-		arg = ft_add_line(arg, temp);
-		free(temp);
+		up_shlvl(*env);
 		temp = ft_strdup("PWD=");
 		temp = ft_strjoin_free_all(temp, getcwd(NULL, 1024));
 		arg = ft_add_line(arg, temp);
@@ -77,18 +74,13 @@ int	main(int argc, char **argv, char **envp)
 	mode_work = processing_argc(argc, argv);
 	env = ft_copy_env(envp);
 	add_pwd_shlvl_mode_c(&env, mode_work);
-	// ft_export("_=/usr/bin/bash", &env);
 	status_exit = 0;
 	set_signal();
 	while (1)
 	{
 		ft_check_status_exit(status_exit, &env, &mode_work);
-		if (mode_work)
-			cmd_line = parsing(env, argv[2], mode_work);
-		else
-			cmd_line = parsing(env, NULL, mode_work);
-		// ft_print_str_of_str(cmd_line);
-		root = get_forest(cmd_line, env);
+		cmd_line = parsing(env, argv[2], mode_work);
+		root = get_forest(cmd_line, env, mode_work, -1);
 		ft_free_str_of_str(&cmd_line);
 		if (node_is_not_empty(root))
 			execute_level(root);

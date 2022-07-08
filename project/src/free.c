@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hashly <hashly@student.21-school.ru>       +#+  +:+       +#+        */
+/*   By: a79856 <a79856@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 22:53:53 by hashly            #+#    #+#             */
-/*   Updated: 2022/03/31 17:25:13 by hashly           ###   ########.fr       */
+/*   Updated: 2022/07/08 04:06:53 by a79856           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,6 @@ static void	free_node_2(t_data *data)
 		free(data->cmd_exec);
 }
 
-/*
-Функция для освобождения узла дерева
-*/
 void	free_node(t_node *node)
 {
 	size_t	i;
@@ -40,16 +37,14 @@ void	free_node(t_node *node)
 		}
 		free_node_2(data);
 	}
+	if (node->list_redir)
+		ft_lstclear(&node->list_redir, &free_node_list_redir);
 	close(node->def_fd[0]);
 	close(node->def_fd[1]);
 	free(data);
 	free(node);
 }
 
-/*
-Функция для освобождения памяти под дерево
-и подмены указателя на env
-*/
 void	free_forest(t_node *temp, char ****env)
 {
 	t_node	*for_free;
